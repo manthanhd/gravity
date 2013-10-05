@@ -33,14 +33,17 @@ public class Netra {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("Welcome to Netra...");
 //        analyzeLiveTweets();
         retrieveTweetsToFile();
 //        analyzeTweetsFromFile();
 //        mergeFiles();
 //        readCountryCodes();
+        System.out.println("Bye bye!");
     }
     
     public static void analyzeTweetsFromFile(){
+        System.out.println("Will analyse tweets from file...");
         JFileChooser chooser = new JFileChooser();
         int result = chooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
@@ -51,9 +54,11 @@ public class Netra {
                 System.out.println("Country: " + key + ", Tweets: " + analyser.getAnalysis().get(key).size());
             }
         }
+        System.out.println("Done");
     }
     
     public static void analyzeLiveTweets(){
+        System.out.println("Will analyse live tweets...");
         String searchQuery = JOptionPane.showInputDialog("Enter your twitter search query");
         ArrayList<TwitterDatum> tweets = TwitterDataSource.getInstance().searchDatums(searchQuery);
         GeoDistAnalyzer analyser = new GeoDistAnalyzer();
@@ -61,9 +66,11 @@ public class Netra {
         for(String key : analyser.getAnalysis().keySet()){
             System.out.println("Country: " + key + ", Tweets: " + analyser.getAnalysis().get(key).size());
         }
+        System.out.println("Done.");
     }
     
     public static void retrieveTweetsToFile(){
+        System.out.println("Will retrieve tweets to a file...");
         String searchQuery = JOptionPane.showInputDialog("Enter your twitter search query");
         if(searchQuery == null /*|| searchQuery.equals("")*/){
             System.out.println("Cancelled!");
@@ -80,6 +87,7 @@ public class Netra {
         } else {
             System.out.println("Process Cancelled.");
         }
+        System.out.println("Done.");
     }
 
     private static String convertToFileURL(String filename) {
@@ -95,6 +103,7 @@ public class Netra {
     }
     
     private static void mergeFiles(){
+        System.out.println("Will merge files...");
         JFileChooser chooser = new JFileChooser();
         int result = chooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
@@ -113,9 +122,11 @@ public class Netra {
         } else {
             System.out.println("Process cancelled.");
         }
+        System.out.println("Done.");
     }
     
     private static void readCountryCodes() {
+        System.out.println("Will read country codes...");
         try {
             CountryCodeMap ccm = new CountryCodeMap();
     //        ccm.startParse();
@@ -140,6 +151,7 @@ public class Netra {
         } catch (SAXException ex) {
             Logger.getLogger(Netra.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("Done.");
     }
     
 }
