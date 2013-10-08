@@ -42,45 +42,51 @@ public class GeoDistAnalyzer {
         for(TwitterDatum tweet : statuses){
             if(tweet == null){
                 continue;
-            } else if (!tweet.isGeoLocationAvailable()){
+            } else if (tweet.getCountryName() == null){
                 // This means that geo location isn't available for that tweet.
                 if(!map.containsKey("Unknown")){
-                    map.put("Unknown",new ArrayList<TwitterDatum>());
+                    map.put("Unknown", new ArrayList<TwitterDatum>());
                 }
                 
                 map.get("Unknown").add(tweet);
                 continue;
             }
             
-            double lat = tweet.getLatitude();
-            double lon = tweet.getLongitude();
-            
-            String address = "http://api.geonames.org/countryCode?lat=" + lat + "&lng=" + lon + "&username=manthanhd";
-            try {
-                String line = getUrlSource(address);
-                CountryCodeMap ccm = new CountryCodeMap();
-                ccm.init();    // This is a must
-                Country country = ccm.map.get(line);
-                boolean found = false;
-                for(String key : ccm.map.keySet()){
-                    if(key.equals(line)){
-                        found = true;
-                        String countryName = ccm.map.get(key).name;
-                        if(!map.containsKey(countryName)){
-                            map.put(countryName, new ArrayList<TwitterDatum>());
-                        }
-                        map.get(ccm.map.get(key).name).add(tweet);
-                    }
-                }
-                if(!found){
-                    map.put(line, new ArrayList<TwitterDatum>());
-                    map.get(line).add(tweet);
-                }
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(GeoDistAnalyzer.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(GeoDistAnalyzer.class.getName()).log(Level.SEVERE, null, ex);
+//            double lat = tweet.getLatitude();
+//            double lon = tweet.getLongitude();
+//            
+//            String address = "http://api.geonames.org/countryCode?lat=" + lat + "&lng=" + lon + "&username=manthanhd";
+//            try {
+//                String line = getUrlSource(address);
+//                CountryCodeMap ccm = new CountryCodeMap();
+//                ccm.init();    // This is a must
+//                Country country = ccm.map.get(line);
+//                boolean found = false;
+//                for(String key : ccm.map.keySet()){
+//                    if(key.equals(line)){
+//                        found = true;
+//                        String countryName = ccm.map.get(key).name;
+//                        if(!map.containsKey(countryName)){
+//                            map.put(countryName, new ArrayList<TwitterDatum>());
+//                        }
+//                        map.get(ccm.map.get(key).name).add(tweet);
+//                    }
+//                }
+//                if(!found){
+//                    map.put(line, new ArrayList<TwitterDatum>());
+//                    map.get(line).add(tweet);
+//                }
+            if(map.containsKey(tweet.getCountryName())){
+                map.get(tweet.getCountryName()).add(tweet);
+            } else {
+                map.put(tweet.getCountryName(), new ArrayList());
+                map.get(tweet.getCountryName()).add(tweet);
             }
+//            } catch (UnknownHostException ex) {
+//                Logger.getLogger(GeoDistAnalyzer.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (IOException ex) {
+//                Logger.getLogger(GeoDistAnalyzer.class.getName()).log(Level.SEVERE, null, ex);
+//            }
         }
         System.out.println("GeoDistAnalyzer finished.");
     }
