@@ -4,12 +4,12 @@
  */
 package netra;
 
-import DataStoreHandlers.MySQLTwitterDBHandler;
-import analyzers.GeoDistAnalyzer;
-import datasources.TwitterDataSource;
-import helpers.Country;
-import helpers.CountryCodeMap;
-import helpers.TwitterDatum;
+import netra.datastorehandlers.MySQLTwitterDBHandler;
+import netra.analysers.GeoDistAnalyzer;
+import netra.datasources.TwitterDataSource;
+import netra.helpers.Country;
+import netra.helpers.CountryCodeMap;
+import netra.helpers.TwitterDatum;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import netra.listeners.TweetListener;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
@@ -42,7 +43,8 @@ public class Netra {
 //        readCountryCodes();
 //        retrieveTweetsToDatabase() ;
 //        pushTweetsFromFileToDatabase();
-        retrieveTweetsFromDatabase();
+//        retrieveTweetsFromDatabase();
+        streamTweets();
         System.out.println("Bye bye!");
     }
     
@@ -226,6 +228,15 @@ public class Netra {
             Logger.getLogger(Netra.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("Done.");
+    }
+
+    private static void streamTweets() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TwitterDataSource source = TwitterDataSource.getInstance();
+        TweetListener listener = new TweetListener();
+        source.attachListener(listener);
+        source.startListening();
+        
     }
     
 }
