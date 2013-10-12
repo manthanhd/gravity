@@ -7,6 +7,8 @@ package netra.listeners;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import netra.datasources.TwitterDataSource;
+import netra.datastorehandlers.MySQLTwitterDBHandler;
 import netra.helpers.TwitterDatum;
 import twitter4j.StallWarning;
 import twitter4j.Status;
@@ -34,6 +36,11 @@ public class TweetListener implements StatusListener{
         TwitterDatum datum = new TwitterDatum(status);
         tweets.add(datum);
         logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
+        if(tweets.size() > 1000){
+            logger.log(Level.INFO, "Buffer full. Dumping it in file.");
+            TwitterDataSource.getInstance().dumpToFile("tweet_stream.txt", tweets);
+            tweets.clear();
+        }
     }
 
     @Override
@@ -47,6 +54,8 @@ public class TweetListener implements StatusListener{
     public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         logger.log(Level.INFO, "Received track limitation notice.");
+        TwitterDataSource.getInstance().dumpToFile("tweet_stream.txt", tweets);
+        tweets.clear();
     }
 
     @Override
@@ -59,11 +68,16 @@ public class TweetListener implements StatusListener{
     public void onStallWarning(StallWarning warning) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         logger.log(Level.INFO, "Received stall warning.");
+        TwitterDataSource.getInstance().dumpToFile("tweet_stream.txt", tweets);
+        tweets.clear();
     }
 
     @Override
     public void onException(Exception ex) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        logger.log(Level.INFO, "Exception has occurred. Committing objects to database before I die.");
+        TwitterDataSource.getInstance().dumpToFile("tweet_stream.txt", tweets);
+        tweets.clear();
         logger.log(Level.INFO, "Exception:");
         ex.printStackTrace();
     }
