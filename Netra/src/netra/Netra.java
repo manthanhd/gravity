@@ -236,7 +236,6 @@ public class Netra {
         TweetListener listener = new TweetListener();
         source.attachListener(listener);
         source.startListening();
-        
     }
     
 }
