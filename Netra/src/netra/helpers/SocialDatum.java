@@ -6,13 +6,14 @@ package netra.helpers;
 
 import com.google.gson.Gson;
 import java.util.Date;
+import java.util.HashMap;
 import twitter4j.Status;
 
 /**
  *
  * @author manthanhd
  */
-public class TwitterDatum implements Datum {
+public class SocialDatum implements Datum {
 
     /*
      * 1    :   username
@@ -24,15 +25,17 @@ public class TwitterDatum implements Datum {
      * 7    :   country_name
      */
     
-    String data, userName;
-    long retweetCount;
+    String data;//, userName;
+    //long retweetCount;
     double importance;
 //    double lat, lon;
 //    boolean geoLocationAvailable = false;
     
-    private boolean isRetweet = false;
+    //private boolean isRetweet = false;
     private Date datePosted;
-    private String countryName = null;
+    //private String countryName = null;
+    
+    HashMap<String, Object> properties = new HashMap<>();
 
     //    public boolean isGeoLocationAvailable(){
     //        return geoLocationAvailable;
@@ -45,39 +48,39 @@ public class TwitterDatum implements Datum {
     //        return lon;
     //    }
     
-    public TwitterDatum(String data, String userName, String countryName, boolean isRetweet, long retweetCount, double importance, Date datePosted) {
+    public SocialDatum(String data, String userName, String countryName, boolean isRetweet, long retweetCount, double importance, Date datePosted) {
         this.data = data;
-        this.userName = userName;
-        this.countryName = countryName;
-        this.isRetweet = isRetweet;
-        this.retweetCount = retweetCount;
         this.importance = importance;
         this.datePosted = datePosted;
+        properties.put(Properties.USERNAME, userName);
+        properties.put(Properties.COUNTRY_NAME, countryName);
+        properties.put(Properties.IS_RETWEET, isRetweet);
+        properties.put(Properties.RETWEET_COUNT, retweetCount);
     }
     
-    public TwitterDatum(Status tweet){
+    public SocialDatum(Status tweet){
         data = tweet.getText();
-        userName = tweet.getUser().getName();
+        properties.put(Properties.USERNAME, tweet.getUser().getName());
         importance = calculateImportance(tweet);
-//        geoLocationAvailable = (tweet.getGeoLocation() != null);
-//        if(geoLocationAvailable){
-//            lat = tweet.getGeoLocation().getLatitude();
-//            lon = tweet.getGeoLocation().getLongitude();
-//        }
+        
         if(tweet.getPlace()!=null){
-            this.countryName = tweet.getPlace().getCountry();
+            properties.put(Properties.COUNTRY_NAME, tweet.getPlace().getCountry());
         }
-        isRetweet = tweet.isRetweet();
-        retweetCount = tweet.getRetweetCount();
+        properties.put(Properties.IS_RETWEET, tweet.isRetweet());
+        properties.put(Properties.RETWEET_COUNT, tweet.getRetweetCount());
         this.datePosted = tweet.getCreatedAt();
     }
     
+    public HashMap<String, Object> getPropertiesMap(){
+        return properties;
+    }
+    
     public String getUsername(){
-        return userName;
+        return properties.get(Properties.USERNAME) + "";
     }
     
     public long getRetweetCount(){
-        return retweetCount;
+        return (long) properties.get(Properties.RETWEET_COUNT);
     }
     
     @Override
@@ -111,7 +114,7 @@ public class TwitterDatum implements Datum {
      * @return the isRetweet
      */
     public boolean isRetweet() {
-        return isRetweet;
+        return (boolean) properties.get(Properties.IS_RETWEET);
     }
 
     /**
@@ -125,7 +128,7 @@ public class TwitterDatum implements Datum {
      * @return the countryName
      */
     public String getCountryName() {
-        return countryName;
+        return properties.get(Properties.COUNTRY_NAME) + "";
     }
     
     public String toString(){

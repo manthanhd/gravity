@@ -4,7 +4,7 @@
  */
 package netra.filters;
 
-import netra.helpers.TwitterDatum;
+import netra.helpers.SocialDatum;
 import java.util.ArrayList;
 
 /**
@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class OriginalityFilter {
 
-    public ArrayList<TwitterDatum> filter(ArrayList<TwitterDatum> data) {
-        ArrayList<TwitterDatum> filteredData = new ArrayList<>();
-        for(TwitterDatum datum : data){
+    public ArrayList<SocialDatum> filter(ArrayList<SocialDatum> data) {
+        ArrayList<SocialDatum> filteredData = new ArrayList<>();
+        for(SocialDatum datum : data){
             if(!datum.isRetweet()){
                 filteredData.add(datum);
             }

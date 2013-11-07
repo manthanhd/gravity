@@ -9,7 +9,7 @@ import netra.analysers.GeoDistAnalyzer;
 import netra.datasources.TwitterDataSource;
 import netra.helpers.Country;
 import netra.helpers.CountryCodeMap;
-import netra.helpers.TwitterDatum;
+import netra.helpers.SocialDatum;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class Netra {
         JFileChooser chooser = new JFileChooser();
         int result = chooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
-            ArrayList<TwitterDatum> statuses = TwitterDataSource.getInstance().readFromFile(chooser.getSelectedFile().getAbsolutePath());
+            ArrayList<SocialDatum> statuses = TwitterDataSource.getInstance().readFromFile(chooser.getSelectedFile().getAbsolutePath());
             
             GeoDistAnalyzer analyser = new GeoDistAnalyzer();
             analyser.analyze(statuses);
@@ -69,12 +69,12 @@ public class Netra {
         JFileChooser chooser = new JFileChooser();
         int result = chooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
-            ArrayList<TwitterDatum> statuses = TwitterDataSource.getInstance().readFromFile(chooser.getSelectedFile().getAbsolutePath());
+            ArrayList<SocialDatum> statuses = TwitterDataSource.getInstance().readFromFile(chooser.getSelectedFile().getAbsolutePath());
             String hostname = "mysql.cms.gre.ac.uk", dbname="mdb_dm014", username="dm014";
             String password = JOptionPane.showInputDialog("Please input password for " + username + ":");
             String tablename = "netra_twitterdb_incoming";
             MySQLTwitterDBHandler handler = new MySQLTwitterDBHandler(hostname, dbname, username, password);
-            for(TwitterDatum datum : statuses){
+            for(SocialDatum datum : statuses){
                 handler.insert(datum, tablename);
             }
         }
@@ -84,7 +84,7 @@ public class Netra {
     public static void analyzeLiveTweets(){
         System.out.println("Will analyse live tweets...");
         String searchQuery = JOptionPane.showInputDialog("Enter your twitter search query");
-        ArrayList<TwitterDatum> tweets = TwitterDataSource.getInstance().searchDatums(searchQuery);
+        ArrayList<SocialDatum> tweets = TwitterDataSource.getInstance().searchDatums(searchQuery);
         GeoDistAnalyzer analyser = new GeoDistAnalyzer();
         analyser.analyze(tweets);
         for(String key : analyser.getAnalysis().keySet()){
@@ -100,7 +100,7 @@ public class Netra {
             System.out.println("Cancelled!");
             return;
         }
-        ArrayList<TwitterDatum> tweets = TwitterDataSource.getInstance().searchDatums(searchQuery);
+        ArrayList<SocialDatum> tweets = TwitterDataSource.getInstance().searchDatums(searchQuery);
         System.out.println("Tweets acquired: " + tweets.size());
         JFileChooser chooser = new JFileChooser();
         int result = chooser.showSaveDialog(null);
@@ -134,7 +134,7 @@ public class Netra {
 //                handler.insert(datum, tablename);
 //            }
             MySQLTwitterDBHandler handler = new MySQLTwitterDBHandler(hostname, "mdb_dm014", username, password);
-            TwitterDatum[] tweets = handler.retrieveAll(tablename);
+            SocialDatum[] tweets = handler.retrieveAll(tablename);
             System.out.println("Retrieved and resurrected: " + tweets.length); 
         }else{
             System.out.println("Cancelled!");
@@ -149,14 +149,14 @@ public class Netra {
             System.out.println("Cancelled!");
             return;
         }
-        ArrayList<TwitterDatum> tweets = TwitterDataSource.getInstance().searchDatums(searchQuery);
+        ArrayList<SocialDatum> tweets = TwitterDataSource.getInstance().searchDatums(searchQuery);
         System.out.println("Tweets acquired: " + tweets.size());
         String tablename = "netra_twitterdb_incoming";
         String username = "dm014";
         String password = JOptionPane.showInputDialog("Enter password for " + username + ":");
         if(password != null){
             MySQLTwitterDBHandler handler = new MySQLTwitterDBHandler("mysql.cms.gre.ac.uk", "mdb_dm014", username, password);
-            for(TwitterDatum datum : tweets){
+            for(SocialDatum datum : tweets){
                 handler.insert(datum, tablename);
             }
         }else{
@@ -234,7 +234,7 @@ public class Netra {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         TwitterDataSource source = TwitterDataSource.getInstance();
         TweetListener listener = new TweetListener();
-        source.attachListener(listener);
+        source.attachStatusListener(listener);
         source.startListening();
     }
     

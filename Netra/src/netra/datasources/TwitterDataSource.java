@@ -5,7 +5,7 @@
 package netra.datasources;
 
 import com.google.gson.Gson;
-import netra.helpers.TwitterDatum;
+import netra.helpers.SocialDatum;
 import netra.helpers.Tweet;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import netra.helpers.StreamListener;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -39,7 +40,7 @@ public class TwitterDataSource implements DataSource{
     private static TwitterDataSource instance = null;
     private Twitter twitter;
     private TwitterStream stream;
-    private ArrayList<Status> cache;
+    private ArrayList<SocialDatum> cache;
     
     private TwitterDataSource(){
         twitter = new TwitterFactory().getInstance();
@@ -47,8 +48,8 @@ public class TwitterDataSource implements DataSource{
         stream = new TwitterStreamFactory().getInstance();
     }
     
-    public ArrayList<TwitterDatum> readFromFile(String filename) {
-        ArrayList<TwitterDatum> statuses = new ArrayList<>();
+    public ArrayList<SocialDatum> readFromFile(String filename) {
+        ArrayList<SocialDatum> statuses = new ArrayList<>();
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(filename));
@@ -57,7 +58,7 @@ public class TwitterDataSource implements DataSource{
             
             while((line = reader.readLine()) != null){
 //                Gson gson = new Gson();
-                TwitterDatum sd = gson.fromJson(line, TwitterDatum.class);
+                SocialDatum sd = gson.fromJson(line, SocialDatum.class);
 //                Status status = null;
 //                try {
 //                    status = DataObjectFactory.createStatus(line);
@@ -104,11 +105,11 @@ public class TwitterDataSource implements DataSource{
     }
     
    
-    public void dumpToFile(String filename, List<TwitterDatum> statuses){
+    public void dumpToFile(String filename, List<SocialDatum> statuses){
         try {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
                 Gson gson = new Gson();
-                for(TwitterDatum sdatum : statuses){
+                for(SocialDatum sdatum : statuses){
                     writer.write(gson.toJson(sdatum) + System.lineSeparator());
                 }
                 writer.flush();
@@ -118,26 +119,28 @@ public class TwitterDataSource implements DataSource{
         } 
     }
     
-    public ArrayList<Status> getCache(){
+    @Override
+    public ArrayList<SocialDatum> getCache(){
         return cache;
     }
     
-    public ArrayList<TwitterDatum> searchDatums(String searchString){
-        ArrayList<TwitterDatum> datums = new ArrayList<>();
-        System.out.println("Acquiring...");
-        ArrayList<Status> tweets = search(searchString);
-        System.out.println("Converting to SocialDatums...");
-        for(Status tweet : tweets){
-            datums.add(new TwitterDatum(tweet));
-        }
-        System.out.println("Done.");
-        return datums;
-    }
+//    public ArrayList<SocialDatum> searchDatums(String searchString){
+//        ArrayList<SocialDatum> datums = new ArrayList<>();
+//        System.out.println("Acquiring...");
+//        ArrayList<Status> tweets = search(searchString);
+//        System.out.println("Converting to SocialDatums...");
+//        for(Status tweet : tweets){
+//            datums.add(new SocialDatum(tweet));
+//        }
+//        System.out.println("Done.");
+//        return datums;
+//    }
     
-    public ArrayList<Status> search(String searchString){
+    @Override
+    public ArrayList<SocialDatum> searchDatums(String searchString){
 //                String searchString = JOptionPane.showInputDialog("Enter a search string...");
         twitter = new TwitterFactory().getInstance();
-        ArrayList<Status> tweets = new ArrayList<>();
+        ArrayList<SocialDatum> tweets = new ArrayList<>();
         try {
             Query query = new Query(searchString);
             
@@ -148,10 +151,12 @@ public class TwitterDataSource implements DataSource{
             do {
                 result = twitter.search(query);
 //                System.out.println("Found " + result.getCount() + " results containing your search query.");
-                tweets.addAll(result.getTweets());
-//                for (Status tweet : tweets) {
+//                SocialDatum datum = new SocialDatum(null)
+//                tweets.addAll(result.getTweets());
+                for (Status tweet : result.getTweets()) {
 //                    System.out.println("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
-//                }
+                    tweets.add(new SocialDatum(tweet));
+                }
                 
 //                tweetCount += tweets.size();
             } while ((query = result.nextQuery()) != null);
@@ -172,7 +177,7 @@ public class TwitterDataSource implements DataSource{
         }
     }
     
-    public void attachListener(StatusListener listener){
+    public void attachStatusListener(StatusListener listener){
         stream.addListener(listener);
     }
     
@@ -194,5 +199,10 @@ public class TwitterDataSource implements DataSource{
             instance = new TwitterDataSource();
         }
         return instance;
+    }
+
+    @Override
+    public void streamDatums(StreamListener listener) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

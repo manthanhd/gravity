@@ -6,7 +6,7 @@ package netra.analysers;
 
 import netra.helpers.Country;
 import netra.helpers.CountryCodeMap;
-import netra.helpers.TwitterDatum;
+import netra.helpers.SocialDatum;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,28 +24,28 @@ import java.util.logging.Logger;
  */
 public class GeoDistAnalyzer {
     
-    private HashMap<String,ArrayList<TwitterDatum>> map;
+    private HashMap<String,ArrayList<SocialDatum>> map;
 
     public GeoDistAnalyzer() {
         map = new HashMap<>();
     }
     
-    public HashMap<String,ArrayList<TwitterDatum>> getAnalysis(){
+    public HashMap<String,ArrayList<SocialDatum>> getAnalysis(){
         if(map.isEmpty()){
             return null;
         }
         return map;
     }
     
-    public void analyze(ArrayList<TwitterDatum> statuses){
+    public void analyze(ArrayList<SocialDatum> statuses){
         System.out.println("GeoDistAnalyzer hard at work...");
-        for(TwitterDatum tweet : statuses){
+        for(SocialDatum tweet : statuses){
             if(tweet == null){
                 continue;
             } else if (tweet.getCountryName() == null){
                 // This means that geo location isn't available for that tweet.
                 if(!map.containsKey("Unknown")){
-                    map.put("Unknown", new ArrayList<TwitterDatum>());
+                    map.put("Unknown", new ArrayList<SocialDatum>());
                 }
                 
                 map.get("Unknown").add(tweet);

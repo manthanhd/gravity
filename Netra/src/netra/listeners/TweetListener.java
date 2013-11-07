@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import netra.datasources.TwitterDataSource;
 import netra.datastorehandlers.MySQLTwitterDBHandler;
-import netra.helpers.TwitterDatum;
+import netra.helpers.SocialDatum;
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
@@ -21,7 +21,7 @@ import twitter4j.StatusListener;
  */
 public class TweetListener implements StatusListener{
 
-    ArrayList<TwitterDatum> tweets;
+    ArrayList<SocialDatum> tweets;
     Logger logger;
 
     public TweetListener() {
@@ -33,12 +33,12 @@ public class TweetListener implements StatusListener{
     public void onStatus(Status status) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         logger.log(Level.INFO, "Status received.");
-        TwitterDatum datum = new TwitterDatum(status);
+        SocialDatum datum = new SocialDatum(status);
         tweets.add(datum);
         
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new TwitterDatum[tweets.size()]), "netra_twitterdb_incoming");
+            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
             tweets.clear();
         }
 //        for(TwitterDatum datum2 : tweets){
@@ -69,7 +69,7 @@ public class TweetListener implements StatusListener{
 //        tweets.clear();
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new TwitterDatum[tweets.size()]), "netra_twitterdb_incoming");
+            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
             tweets.clear();
         }
     }
@@ -88,7 +88,7 @@ public class TweetListener implements StatusListener{
 //        tweets.clear();
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new TwitterDatum[tweets.size()]), "netra_twitterdb_incoming");
+            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
             tweets.clear();
         }
     }
@@ -101,7 +101,7 @@ public class TweetListener implements StatusListener{
 //        tweets.clear();
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new TwitterDatum[tweets.size()]), "netra_twitterdb_incoming");
+            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
             tweets.clear();
         }
         logger.log(Level.INFO, "Exception:");

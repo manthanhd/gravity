@@ -4,7 +4,7 @@
  */
 package netra.datastorehandlers;
 
-import netra.helpers.TwitterDatum;
+import netra.helpers.SocialDatum;
 
 /**
  *
@@ -12,10 +12,10 @@ import netra.helpers.TwitterDatum;
  */
 public abstract class TwitterDBHandler {
     
-    abstract public void insert(TwitterDatum datum, String tablename);
-    abstract public void insert(TwitterDatum[] datums, String tablename);
-    abstract public TwitterDatum[] retrieveNew(String tablename);
-    abstract public TwitterDatum[] retrieveWithKeyword(String condition, String tablename);
-    abstract public TwitterDatum[] retrieveAll(String tablename);
+    abstract public void insert(SocialDatum datum, String tablename);
+    abstract public void insert(SocialDatum[] datums, String tablename);
+    abstract public SocialDatum[] retrieveNew(String tablename);
+    abstract public SocialDatum[] retrieveWithKeyword(String condition, String tablename);
+    abstract public SocialDatum[] retrieveAll(String tablename);
     
 }

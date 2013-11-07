@@ -4,7 +4,7 @@
  */
 package netra.datastorehandlers;
 
-import netra.helpers.TwitterDatum;
+import netra.helpers.SocialDatum;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -29,7 +29,7 @@ public class MySQLTwitterDBHandler extends TwitterDBHandler {
     }
     
     @Override
-    public void insert(TwitterDatum datum, String tablename) {
+    public void insert(SocialDatum datum, String tablename) {
         try{
             logger.log(Level.INFO, "Establishing connection...");
             connector.connect();
@@ -62,8 +62,8 @@ public class MySQLTwitterDBHandler extends TwitterDBHandler {
     }
 
     @Override
-    public TwitterDatum[] retrieveNew(String tablename) {
-        ArrayList<TwitterDatum> datums = new ArrayList<>();
+    public SocialDatum[] retrieveNew(String tablename) {
+        ArrayList<SocialDatum> datums = new ArrayList<>();
         try{
             logger.log(Level.INFO, "Establishing connection...");
             connector.connect();
@@ -88,7 +88,7 @@ public class MySQLTwitterDBHandler extends TwitterDBHandler {
                 retweetCount = res.getLong("retweet_count");
                 importance = res.getDouble("importance");
                 datePosted = res.getDate("date_posted");
-                datums.add(new TwitterDatum(data, userName, country_name, isRetweet, retweetCount, importance, datePosted));
+                datums.add(new SocialDatum(data, userName, country_name, isRetweet, retweetCount, importance, datePosted));
             }
             logger.log(Level.INFO, "Results gathered: {0}", datums.size());
             res.close();
@@ -106,18 +106,18 @@ public class MySQLTwitterDBHandler extends TwitterDBHandler {
         if(datums.isEmpty()){
             return null;
         } else {
-            return datums.toArray(new TwitterDatum[datums.size()]);
+            return datums.toArray(new SocialDatum[datums.size()]);
         }
     }
 
     @Override
-    public TwitterDatum[] retrieveWithKeyword(String condition, String tablename) {
+    public SocialDatum[] retrieveWithKeyword(String condition, String tablename) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public TwitterDatum[] retrieveAll(String tablename) {
-        ArrayList<TwitterDatum> datums = new ArrayList<>();
+    public SocialDatum[] retrieveAll(String tablename) {
+        ArrayList<SocialDatum> datums = new ArrayList<>();
         try{
             logger.log(Level.INFO, "Establishing connection...");
             connector.connect();
@@ -142,7 +142,7 @@ public class MySQLTwitterDBHandler extends TwitterDBHandler {
                 retweetCount = res.getLong("retweet_count");
                 importance = res.getDouble("importance");
                 datePosted = res.getDate("date_posted");
-                datums.add(new TwitterDatum(data, userName, country_name, isRetweet, retweetCount, importance, datePosted));
+                datums.add(new SocialDatum(data, userName, country_name, isRetweet, retweetCount, importance, datePosted));
             }
             logger.log(Level.INFO, "Results gathered: {0}", datums.size());
             res.close();
@@ -160,17 +160,17 @@ public class MySQLTwitterDBHandler extends TwitterDBHandler {
         if(datums.isEmpty()){
             return null;
         } else {
-            return datums.toArray(new TwitterDatum[datums.size()]);
+            return datums.toArray(new SocialDatum[datums.size()]);
         }
     }
 
     @Override
-    public void insert(TwitterDatum[] datums, String tablename) {
+    public void insert(SocialDatum[] datums, String tablename) {
         try{
             logger.log(Level.INFO, "Establishing connection...");
             connector.connect();
             logger.log(Level.INFO, "Connection established.\nPreparing statement...");
-            for(TwitterDatum datum : datums){
+            for(SocialDatum datum : datums){
                 String query = "INSERT INTO " + tablename + " (username, data, importance, retweet_count, is_retweet, date_posted, country_name) VALUES (?,?,?,?,?,?,?);";
                 PreparedStatement stmt = connector.getConnection().prepareStatement(query);
                 Date currentDate = new Date(Calendar.getInstance().getTimeInMillis());  // This is java.sql.Date

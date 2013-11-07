@@ -4,12 +4,18 @@
  */
 package netra.datasources;
 
+import java.util.ArrayList;
+import netra.helpers.SocialDatum;
+import netra.helpers.StreamListener;
+
 /**
  *
  * @author manthanhd
  */
 public interface DataSource {
     
-    
+    public ArrayList<SocialDatum> searchDatums(String searchText);
+    public ArrayList<SocialDatum> getCache();
+    public void streamDatums(StreamListener listener);
     
 }
