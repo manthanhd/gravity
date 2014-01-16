@@ -1,0 +1,165 @@
+2013-11-17 12:47:28,703 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2013-11-17 12:47:29,394 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2013-11-17 12:47:29,440 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2013-11-17 12:47:29,442 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2013-11-17 12:47:29,442 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: NameNode metrics system started
+2013-11-17 12:47:36,325 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2013-11-17 12:47:36,347 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2013-11-17 12:47:36,479 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source jvm registered.
+2013-11-17 12:47:36,498 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source NameNode registered.
+2013-11-17 12:47:37,001 INFO org.apache.hadoop.hdfs.util.GSet: Computing capacity for map BlocksMap
+2013-11-17 12:47:37,012 INFO org.apache.hadoop.hdfs.util.GSet: VM type       = 64-bit
+2013-11-17 12:47:37,012 INFO org.apache.hadoop.hdfs.util.GSet: 2.0% max memory = 1013645312
+2013-11-17 12:47:37,012 INFO org.apache.hadoop.hdfs.util.GSet: capacity      = 2^21 = 2097152 entries
+2013-11-17 12:47:37,012 INFO org.apache.hadoop.hdfs.util.GSet: recommended=2097152, actual=2097152
+2013-11-17 12:47:37,343 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: fsOwner=hduser
+2013-11-17 12:47:37,348 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: supergroup=supergroup
+2013-11-17 12:47:37,348 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: isPermissionEnabled=true
+2013-11-17 12:47:37,394 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: dfs.block.invalidate.limit=100
+2013-11-17 12:47:37,394 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: isAccessTokenEnabled=false accessKeyUpdateInterval=0 min(s), accessTokenLifetime=0 min(s)
+2013-11-17 12:47:39,958 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: Registered FSNamesystemStateMBean and NameNodeMXBean
+2013-11-17 12:47:40,160 INFO org.apache.hadoop.hdfs.server.namenode.FSEditLog: dfs.namenode.edits.toleration.length = 0
+2013-11-17 12:47:40,161 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: Caching file names occuring more than 10 times 
+2013-11-17 12:47:40,241 INFO org.apache.hadoop.hdfs.server.common.Storage: Storage directory /tmp/hadoop-hduser/dfs/name does not exist
+2013-11-17 12:47:40,250 ERROR org.apache.hadoop.hdfs.server.namenode.FSNamesystem: FSNamesystem initialization failed.
+org.apache.hadoop.hdfs.server.common.InconsistentFSStateException: Directory /tmp/hadoop-hduser/dfs/name is in an inconsistent state: storage directory does not exist or is not accessible.
+	at org.apache.hadoop.hdfs.server.namenode.FSImage.recoverTransitionRead(FSImage.java:304)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.loadFSImage(FSDirectory.java:104)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.initialize(FSNamesystem.java:427)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.<init>(FSNamesystem.java:395)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.initialize(NameNode.java:299)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:569)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.createNameNode(NameNode.java:1479)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.main(NameNode.java:1488)
+2013-11-17 12:47:40,296 ERROR org.apache.hadoop.hdfs.server.namenode.NameNode: org.apache.hadoop.hdfs.server.common.InconsistentFSStateException: Directory /tmp/hadoop-hduser/dfs/name is in an inconsistent state: storage directory does not exist or is not accessible.
+	at org.apache.hadoop.hdfs.server.namenode.FSImage.recoverTransitionRead(FSImage.java:304)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.loadFSImage(FSDirectory.java:104)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.initialize(FSNamesystem.java:427)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.<init>(FSNamesystem.java:395)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.initialize(NameNode.java:299)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:569)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.createNameNode(NameNode.java:1479)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.main(NameNode.java:1488)
+
+2013-11-17 12:47:40,309 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at heisenberg/127.0.1.1
+************************************************************/
+2013-11-17 12:56:38,382 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2013-11-17 12:56:38,960 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2013-11-17 12:56:38,994 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2013-11-17 12:56:38,996 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2013-11-17 12:56:38,996 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: NameNode metrics system started
+2013-11-17 12:56:45,860 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2013-11-17 12:56:45,885 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2013-11-17 12:56:45,919 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source jvm registered.
+2013-11-17 12:56:45,932 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source NameNode registered.
+2013-11-17 12:56:46,065 INFO org.apache.hadoop.hdfs.util.GSet: Computing capacity for map BlocksMap
+2013-11-17 12:56:46,065 INFO org.apache.hadoop.hdfs.util.GSet: VM type       = 64-bit
+2013-11-17 12:56:46,065 INFO org.apache.hadoop.hdfs.util.GSet: 2.0% max memory = 1013645312
+2013-11-17 12:56:46,066 INFO org.apache.hadoop.hdfs.util.GSet: capacity      = 2^21 = 2097152 entries
+2013-11-17 12:56:46,066 INFO org.apache.hadoop.hdfs.util.GSet: recommended=2097152, actual=2097152
+2013-11-17 12:56:46,108 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: fsOwner=hduser
+2013-11-17 12:56:46,109 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: supergroup=supergroup
+2013-11-17 12:56:46,109 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: isPermissionEnabled=true
+2013-11-17 12:56:46,126 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: dfs.block.invalidate.limit=100
+2013-11-17 12:56:46,127 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: isAccessTokenEnabled=false accessKeyUpdateInterval=0 min(s), accessTokenLifetime=0 min(s)
+2013-11-17 12:56:47,792 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: Registered FSNamesystemStateMBean and NameNodeMXBean
+2013-11-17 12:56:47,992 INFO org.apache.hadoop.hdfs.server.namenode.FSEditLog: dfs.namenode.edits.toleration.length = 0
+2013-11-17 12:56:48,004 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: Caching file names occuring more than 10 times 
+2013-11-17 12:56:48,086 INFO org.apache.hadoop.hdfs.server.common.Storage: Storage directory /tmp/hadoop-hduser/dfs/name does not exist
+2013-11-17 12:56:48,114 ERROR org.apache.hadoop.hdfs.server.namenode.FSNamesystem: FSNamesystem initialization failed.
+org.apache.hadoop.hdfs.server.common.InconsistentFSStateException: Directory /tmp/hadoop-hduser/dfs/name is in an inconsistent state: storage directory does not exist or is not accessible.
+	at org.apache.hadoop.hdfs.server.namenode.FSImage.recoverTransitionRead(FSImage.java:304)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.loadFSImage(FSDirectory.java:104)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.initialize(FSNamesystem.java:427)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.<init>(FSNamesystem.java:395)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.initialize(NameNode.java:299)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:569)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.createNameNode(NameNode.java:1479)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.main(NameNode.java:1488)
+2013-11-17 12:56:48,164 ERROR org.apache.hadoop.hdfs.server.namenode.NameNode: org.apache.hadoop.hdfs.server.common.InconsistentFSStateException: Directory /tmp/hadoop-hduser/dfs/name is in an inconsistent state: storage directory does not exist or is not accessible.
+	at org.apache.hadoop.hdfs.server.namenode.FSImage.recoverTransitionRead(FSImage.java:304)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.loadFSImage(FSDirectory.java:104)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.initialize(FSNamesystem.java:427)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.<init>(FSNamesystem.java:395)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.initialize(NameNode.java:299)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:569)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.createNameNode(NameNode.java:1479)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.main(NameNode.java:1488)
+
+2013-11-17 12:56:48,185 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at heisenberg/127.0.1.1
+************************************************************/
+2013-11-17 13:21:25,691 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2013-11-17 13:21:26,302 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2013-11-17 13:21:26,339 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2013-11-17 13:21:26,342 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2013-11-17 13:21:26,342 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: NameNode metrics system started
+2013-11-17 13:21:32,798 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2013-11-17 13:21:32,806 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2013-11-17 13:21:32,835 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source jvm registered.
+2013-11-17 13:21:32,836 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source NameNode registered.
+2013-11-17 13:21:32,899 INFO org.apache.hadoop.hdfs.util.GSet: Computing capacity for map BlocksMap
+2013-11-17 13:21:32,899 INFO org.apache.hadoop.hdfs.util.GSet: VM type       = 64-bit
+2013-11-17 13:21:32,899 INFO org.apache.hadoop.hdfs.util.GSet: 2.0% max memory = 1013645312
+2013-11-17 13:21:32,899 INFO org.apache.hadoop.hdfs.util.GSet: capacity      = 2^21 = 2097152 entries
+2013-11-17 13:21:32,899 INFO org.apache.hadoop.hdfs.util.GSet: recommended=2097152, actual=2097152
+2013-11-17 13:21:32,928 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: fsOwner=hduser
+2013-11-17 13:21:32,928 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: supergroup=supergroup
+2013-11-17 13:21:32,928 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: isPermissionEnabled=true
+2013-11-17 13:21:32,939 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: dfs.block.invalidate.limit=100
+2013-11-17 13:21:32,939 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: isAccessTokenEnabled=false accessKeyUpdateInterval=0 min(s), accessTokenLifetime=0 min(s)
+2013-11-17 13:21:33,431 INFO org.apache.hadoop.hdfs.server.namenode.FSNamesystem: Registered FSNamesystemStateMBean and NameNodeMXBean
+2013-11-17 13:21:33,486 INFO org.apache.hadoop.hdfs.server.namenode.FSEditLog: dfs.namenode.edits.toleration.length = 0
+2013-11-17 13:21:33,486 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: Caching file names occuring more than 10 times 
+2013-11-17 13:21:33,502 INFO org.apache.hadoop.hdfs.server.common.Storage: Storage directory /tmp/hadoop-hduser/dfs/name does not exist
+2013-11-17 13:21:33,510 ERROR org.apache.hadoop.hdfs.server.namenode.FSNamesystem: FSNamesystem initialization failed.
+org.apache.hadoop.hdfs.server.common.InconsistentFSStateException: Directory /tmp/hadoop-hduser/dfs/name is in an inconsistent state: storage directory does not exist or is not accessible.
+	at org.apache.hadoop.hdfs.server.namenode.FSImage.recoverTransitionRead(FSImage.java:304)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.loadFSImage(FSDirectory.java:104)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.initialize(FSNamesystem.java:427)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.<init>(FSNamesystem.java:395)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.initialize(NameNode.java:299)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:569)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.createNameNode(NameNode.java:1479)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.main(NameNode.java:1488)
+2013-11-17 13:21:33,524 ERROR org.apache.hadoop.hdfs.server.namenode.NameNode: org.apache.hadoop.hdfs.server.common.InconsistentFSStateException: Directory /tmp/hadoop-hduser/dfs/name is in an inconsistent state: storage directory does not exist or is not accessible.
+	at org.apache.hadoop.hdfs.server.namenode.FSImage.recoverTransitionRead(FSImage.java:304)
+	at org.apache.hadoop.hdfs.server.namenode.FSDirectory.loadFSImage(FSDirectory.java:104)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.initialize(FSNamesystem.java:427)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.<init>(FSNamesystem.java:395)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.initialize(NameNode.java:299)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.<init>(NameNode.java:569)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.createNameNode(NameNode.java:1479)
+	at org.apache.hadoop.hdfs.server.namenode.NameNode.main(NameNode.java:1488)
+
+2013-11-17 13:21:33,525 INFO org.apache.hadoop.hdfs.server.namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at heisenberg/127.0.1.1
+************************************************************/

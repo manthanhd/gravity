@@ -1,0 +1,22 @@
+2014-01-16 09:20:27,358 INFO org.apache.hadoop.util.NativeCodeLoader: Loaded the native-hadoop library
+2014-01-16 09:20:28,251 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2014-01-16 09:20:28,596 INFO org.apache.hadoop.util.ProcessTree: setsid exited with exit code 0
+2014-01-16 09:20:28,605 INFO org.apache.hadoop.mapred.Task:  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@76caf6c1
+2014-01-16 09:20:28,830 INFO org.apache.hadoop.mapred.MapTask: Processing split: hdfs://heisenberg:54310/user/hduser/data/pg19699.txt:0+1945886
+2014-01-16 09:20:28,849 INFO org.apache.hadoop.mapred.MapTask: io.sort.mb = 100
+2014-01-16 09:20:29,293 INFO org.apache.hadoop.mapred.MapTask: data buffer = 79691776/99614720
+2014-01-16 09:20:29,293 INFO org.apache.hadoop.mapred.MapTask: record buffer = 262144/327680
+2014-01-16 09:20:29,325 WARN org.apache.hadoop.io.compress.snappy.LoadSnappy: Snappy native library not loaded
+2014-01-16 09:20:32,171 INFO org.apache.hadoop.mapred.MapTask: Spilling map output: record full = true
+2014-01-16 09:20:32,171 INFO org.apache.hadoop.mapred.MapTask: bufstart = 0; bufend = 2616512; bufvoid = 99614720
+2014-01-16 09:20:32,171 INFO org.apache.hadoop.mapred.MapTask: kvstart = 0; kvend = 262144; length = 327680
+2014-01-16 09:20:32,693 INFO org.apache.hadoop.mapred.MapTask: Starting flush of map output
+2014-01-16 09:20:34,511 INFO org.apache.hadoop.mapred.MapTask: Finished spill 0
+2014-01-16 09:20:34,893 INFO org.apache.hadoop.mapred.MapTask: Finished spill 1
+2014-01-16 09:20:34,925 INFO org.apache.hadoop.mapred.Merger: Merging 2 sorted segments
+2014-01-16 09:20:34,947 INFO org.apache.hadoop.mapred.Merger: Down to the last merge-pass, with 2 segments left of total size: 807004 bytes
+2014-01-16 09:20:35,275 INFO org.apache.hadoop.mapred.Task: Task:attempt_201401160905_0009_m_000000_0 is done. And is in the process of commiting
+2014-01-16 09:20:35,343 INFO org.apache.hadoop.mapred.Task: Task 'attempt_201401160905_0009_m_000000_0' done.
+2014-01-16 09:20:35,350 INFO org.apache.hadoop.mapred.TaskLogsTruncater: Initializing logs' truncater with mapRetainSize=-1 and reduceRetainSize=-1
+2014-01-16 09:20:35,418 INFO org.apache.hadoop.io.nativeio.NativeIO: Initialized cache for UID to User mapping with a cache timeout of 14400 seconds.
+2014-01-16 09:20:35,419 INFO org.apache.hadoop.io.nativeio.NativeIO: Got UserName hduser for UID 1001 from the native implementation

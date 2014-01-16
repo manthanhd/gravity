@@ -1,0 +1,19 @@
+[Fatal Error] mapred-site.xml:1:1: Premature end of file.
+Exception in thread "main" java.lang.ExceptionInInitializerError
+	at org.apache.hadoop.mapred.JobTracker.<clinit>(JobTracker.java:4018)
+Caused by: java.lang.RuntimeException: org.xml.sax.SAXParseException: Premature end of file.
+	at org.apache.hadoop.conf.Configuration.loadResource(Configuration.java:1249)
+	at org.apache.hadoop.conf.Configuration.loadResources(Configuration.java:1107)
+	at org.apache.hadoop.conf.Configuration.getProps(Configuration.java:1053)
+	at org.apache.hadoop.conf.Configuration.get(Configuration.java:397)
+	at org.apache.hadoop.mapred.JobConf.checkAndWarnDeprecation(JobConf.java:1899)
+	at org.apache.hadoop.mapred.JobConf.<init>(JobConf.java:343)
+	at org.apache.hadoop.mapred.Counters.<clinit>(Counters.java:63)
+	... 1 more
+Caused by: org.xml.sax.SAXParseException: Premature end of file.
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:246)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:284)
+	at javax.xml.parsers.DocumentBuilder.parse(DocumentBuilder.java:180)
+	at org.apache.hadoop.conf.Configuration.loadResource(Configuration.java:1156)
+	... 7 more
+Could not find the main class: org.apache.hadoop.mapred.JobTracker.  Program will exit.

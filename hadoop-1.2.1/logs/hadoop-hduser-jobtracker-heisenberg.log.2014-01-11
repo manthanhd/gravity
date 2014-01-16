@@ -1,0 +1,192 @@
+2014-01-11 10:39:34,695 INFO org.apache.hadoop.mapred.JobTracker: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting JobTracker
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2014-01-11 10:39:37,997 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2014-01-11 10:39:38,155 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2014-01-11 10:39:38,169 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2014-01-11 10:39:38,169 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: JobTracker metrics system started
+2014-01-11 10:39:39,365 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source QueueMetrics,q=default registered.
+2014-01-11 10:39:42,180 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2014-01-11 10:39:42,180 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2014-01-11 10:39:42,206 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2014-01-11 10:39:42,238 INFO org.apache.hadoop.mapred.JobTracker: Scheduler configured with (memSizeForMapSlotOnJT, memSizeForReduceSlotOnJT, limitMaxMemForMapTasks, limitMaxMemForReduceTasks) (-1, -1, -1, -1)
+2014-01-11 10:39:42,241 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Starting expired delegation token remover thread, tokenRemoverScanInterval=60 min(s)
+2014-01-11 10:39:42,257 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2014-01-11 10:39:42,258 INFO org.apache.hadoop.util.HostsFileReader: Refreshing hosts (include/exclude) list
+2014-01-11 10:39:42,365 INFO org.apache.hadoop.mapred.JobTracker: Starting jobtracker with owner as hduser
+2014-01-11 10:39:42,705 INFO org.apache.hadoop.ipc.Server: Starting SocketReader
+2014-01-11 10:39:42,711 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source RpcDetailedActivityForPort54311 registered.
+2014-01-11 10:39:42,724 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source RpcActivityForPort54311 registered.
+2014-01-11 10:39:43,358 INFO org.mortbay.log: Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2014-01-11 10:39:43,595 INFO org.apache.hadoop.http.HttpServer: Added global filtersafety (class=org.apache.hadoop.http.HttpServer$QuotingInputFilter)
+2014-01-11 10:39:43,602 INFO org.apache.hadoop.http.HttpServer: Port returned by webServer.getConnectors()[0].getLocalPort() before open() is -1. Opening the listener on 50030
+2014-01-11 10:39:43,605 INFO org.apache.hadoop.http.HttpServer: listener.getLocalPort() returned 50030 webServer.getConnectors()[0].getLocalPort() returned 50030
+2014-01-11 10:39:43,605 INFO org.apache.hadoop.http.HttpServer: Jetty bound to port 50030
+2014-01-11 10:39:43,605 INFO org.mortbay.log: jetty-6.1.26
+2014-01-11 10:39:44,589 INFO org.mortbay.log: Started SelectChannelConnector@0.0.0.0:50030
+2014-01-11 10:39:44,609 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source jvm registered.
+2014-01-11 10:39:44,610 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source JobTrackerMetrics registered.
+2014-01-11 10:39:44,642 INFO org.apache.hadoop.mapred.JobTracker: JobTracker up at: 54311
+2014-01-11 10:39:44,642 INFO org.apache.hadoop.mapred.JobTracker: JobTracker webserver: 50030
+2014-01-11 10:39:44,686 INFO org.apache.hadoop.mapred.JobTracker: Setting safe mode to true. Requested by : hduser
+2014-01-11 10:39:44,671 INFO org.apache.hadoop.ipc.Server: IPC Server Responder: starting
+2014-01-11 10:39:44,674 INFO org.apache.hadoop.ipc.Server: IPC Server listener on 54311: starting
+2014-01-11 10:39:44,675 INFO org.apache.hadoop.ipc.Server: IPC Server handler 0 on 54311: starting
+2014-01-11 10:39:44,677 INFO org.apache.hadoop.ipc.Server: IPC Server handler 1 on 54311: starting
+2014-01-11 10:39:44,678 INFO org.apache.hadoop.ipc.Server: IPC Server handler 2 on 54311: starting
+2014-01-11 10:39:44,679 INFO org.apache.hadoop.ipc.Server: IPC Server handler 3 on 54311: starting
+2014-01-11 10:39:44,680 INFO org.apache.hadoop.ipc.Server: IPC Server handler 4 on 54311: starting
+2014-01-11 10:39:44,681 INFO org.apache.hadoop.ipc.Server: IPC Server handler 5 on 54311: starting
+2014-01-11 10:39:44,682 INFO org.apache.hadoop.ipc.Server: IPC Server handler 6 on 54311: starting
+2014-01-11 10:39:44,684 INFO org.apache.hadoop.ipc.Server: IPC Server handler 7 on 54311: starting
+2014-01-11 10:39:44,685 INFO org.apache.hadoop.ipc.Server: IPC Server handler 8 on 54311: starting
+2014-01-11 10:39:44,698 INFO org.apache.hadoop.ipc.Server: IPC Server handler 9 on 54311: starting
+2014-01-11 10:39:46,184 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:47,185 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:48,186 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:49,188 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:50,189 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:51,192 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:52,193 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:53,195 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:54,196 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:55,197 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:55,201 ERROR org.apache.hadoop.security.UserGroupInformation: PriviledgedActionException as:hduser cause:java.net.ConnectException: Call to heisenberg.dnsdynamic.net/192.168.71.128:54310 failed on connection exception: java.net.ConnectException: Connection refused
+2014-01-11 10:39:55,203 INFO org.apache.hadoop.mapred.JobTracker: Problem connecting to HDFS Namenode... re-trying
+java.net.ConnectException: Call to heisenberg.dnsdynamic.net/192.168.71.128:54310 failed on connection exception: java.net.ConnectException: Connection refused
+	at org.apache.hadoop.ipc.Client.wrapException(Client.java:1142)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1118)
+	at org.apache.hadoop.ipc.RPC$Invoker.invoke(RPC.java:229)
+	at $Proxy7.getProtocolVersion(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:85)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:62)
+	at $Proxy7.getProtocolVersion(Unknown Source)
+	at org.apache.hadoop.ipc.RPC.checkVersion(RPC.java:422)
+	at org.apache.hadoop.hdfs.DFSClient.createNamenode(DFSClient.java:183)
+	at org.apache.hadoop.hdfs.DFSClient.<init>(DFSClient.java:281)
+	at org.apache.hadoop.hdfs.DFSClient.<init>(DFSClient.java:245)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.initialize(DistributedFileSystem.java:100)
+	at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:1446)
+	at org.apache.hadoop.fs.FileSystem.access$200(FileSystem.java:67)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:1464)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:263)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:124)
+	at org.apache.hadoop.mapred.JobTracker$2.run(JobTracker.java:1708)
+	at org.apache.hadoop.mapred.JobTracker$2.run(JobTracker.java:1706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:396)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1190)
+	at org.apache.hadoop.mapred.JobTracker.initializeFilesystem(JobTracker.java:1706)
+	at org.apache.hadoop.mapred.JobTracker.offerService(JobTracker.java:2143)
+	at org.apache.hadoop.mapred.JobTracker.main(JobTracker.java:4711)
+Caused by: java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:599)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:511)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:481)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:457)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:583)
+	at org.apache.hadoop.ipc.Client$Connection.access$2200(Client.java:205)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1249)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1093)
+	... 27 more
+2014-01-11 10:39:57,221 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:58,223 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:59,224 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:00,228 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:01,229 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:02,230 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:03,232 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:04,234 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:05,172 INFO org.apache.hadoop.mapred.JobTracker: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down JobTracker at heisenberg/127.0.1.1
+************************************************************/
+2014-01-11 10:40:50,635 INFO org.apache.hadoop.mapred.JobTracker: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting JobTracker
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2014-01-11 10:40:55,416 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2014-01-11 10:40:55,599 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2014-01-11 10:40:55,609 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2014-01-11 10:40:55,609 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: JobTracker metrics system started
+2014-01-11 10:40:57,060 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source QueueMetrics,q=default registered.
+2014-01-11 10:40:58,871 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2014-01-11 10:40:58,872 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2014-01-11 10:40:58,886 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2014-01-11 10:40:58,896 INFO org.apache.hadoop.mapred.JobTracker: Scheduler configured with (memSizeForMapSlotOnJT, memSizeForReduceSlotOnJT, limitMaxMemForMapTasks, limitMaxMemForReduceTasks) (-1, -1, -1, -1)
+2014-01-11 10:40:58,896 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Starting expired delegation token remover thread, tokenRemoverScanInterval=60 min(s)
+2014-01-11 10:40:58,905 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2014-01-11 10:40:58,905 INFO org.apache.hadoop.util.HostsFileReader: Refreshing hosts (include/exclude) list
+2014-01-11 10:40:58,954 INFO org.apache.hadoop.mapred.JobTracker: Starting jobtracker with owner as hduser
+2014-01-11 10:40:59,088 INFO org.apache.hadoop.ipc.Server: Starting SocketReader
+2014-01-11 10:40:59,090 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source RpcDetailedActivityForPort54311 registered.
+2014-01-11 10:40:59,090 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source RpcActivityForPort54311 registered.
+2014-01-11 10:40:59,343 INFO org.mortbay.log: Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2014-01-11 10:40:59,733 INFO org.apache.hadoop.http.HttpServer: Added global filtersafety (class=org.apache.hadoop.http.HttpServer$QuotingInputFilter)
+2014-01-11 10:40:59,754 INFO org.apache.hadoop.http.HttpServer: Port returned by webServer.getConnectors()[0].getLocalPort() before open() is -1. Opening the listener on 50030
+2014-01-11 10:40:59,757 INFO org.apache.hadoop.http.HttpServer: listener.getLocalPort() returned 50030 webServer.getConnectors()[0].getLocalPort() returned 50030
+2014-01-11 10:40:59,758 INFO org.apache.hadoop.http.HttpServer: Jetty bound to port 50030
+2014-01-11 10:40:59,758 INFO org.mortbay.log: jetty-6.1.26
+2014-01-11 10:41:00,777 INFO org.mortbay.log: Started SelectChannelConnector@0.0.0.0:50030
+2014-01-11 10:41:00,790 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source jvm registered.
+2014-01-11 10:41:00,796 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source JobTrackerMetrics registered.
+2014-01-11 10:41:00,822 INFO org.apache.hadoop.mapred.JobTracker: JobTracker up at: 54311
+2014-01-11 10:41:00,822 INFO org.apache.hadoop.mapred.JobTracker: JobTracker webserver: 50030
+2014-01-11 10:41:00,854 INFO org.apache.hadoop.mapred.JobTracker: Setting safe mode to true. Requested by : hduser
+2014-01-11 10:41:00,847 INFO org.apache.hadoop.ipc.Server: IPC Server Responder: starting
+2014-01-11 10:41:00,849 INFO org.apache.hadoop.ipc.Server: IPC Server listener on 54311: starting
+2014-01-11 10:41:00,850 INFO org.apache.hadoop.ipc.Server: IPC Server handler 0 on 54311: starting
+2014-01-11 10:41:00,850 INFO org.apache.hadoop.ipc.Server: IPC Server handler 1 on 54311: starting
+2014-01-11 10:41:00,850 INFO org.apache.hadoop.ipc.Server: IPC Server handler 2 on 54311: starting
+2014-01-11 10:41:00,850 INFO org.apache.hadoop.ipc.Server: IPC Server handler 3 on 54311: starting
+2014-01-11 10:41:00,851 INFO org.apache.hadoop.ipc.Server: IPC Server handler 4 on 54311: starting
+2014-01-11 10:41:00,851 INFO org.apache.hadoop.ipc.Server: IPC Server handler 5 on 54311: starting
+2014-01-11 10:41:00,851 INFO org.apache.hadoop.ipc.Server: IPC Server handler 6 on 54311: starting
+2014-01-11 10:41:00,852 INFO org.apache.hadoop.ipc.Server: IPC Server handler 7 on 54311: starting
+2014-01-11 10:41:00,853 INFO org.apache.hadoop.ipc.Server: IPC Server handler 8 on 54311: starting
+2014-01-11 10:41:00,865 INFO org.apache.hadoop.ipc.Server: IPC Server handler 9 on 54311: starting
+2014-01-11 10:41:01,746 INFO org.apache.hadoop.mapred.JobTracker: Setting safe mode to false. Requested by : hduser
+2014-01-11 10:41:02,211 INFO org.apache.hadoop.mapred.JobTracker: Cleaning up the system directory
+2014-01-11 10:41:02,508 INFO org.apache.hadoop.mapred.JobHistory: Job History MaxAge is 2592000000 ms (30.00 days), Cleanup Frequency is 86400000 ms (1.00 days)
+2014-01-11 10:41:02,538 INFO org.apache.hadoop.mapred.JobTracker: History server being initialized in embedded mode
+2014-01-11 10:41:02,599 INFO org.apache.hadoop.mapred.JobHistoryServer: Started job history server at: localhost:50030
+2014-01-11 10:41:02,599 INFO org.apache.hadoop.mapred.JobTracker: Job History Server web address: localhost:50030
+2014-01-11 10:41:02,639 INFO org.apache.hadoop.mapred.CompletedJobStatusStore: Completed job store is inactive
+2014-01-11 10:41:04,102 INFO org.apache.hadoop.mapred.JobTracker: Starting the recovery process for 0 jobs ...
+2014-01-11 10:41:04,102 INFO org.apache.hadoop.mapred.JobTracker: Recovery done! Recoverd 0 of 0 jobs.
+2014-01-11 10:41:04,102 INFO org.apache.hadoop.mapred.JobTracker: Recovery Duration (ms):0
+2014-01-11 10:41:13,573 INFO org.apache.hadoop.net.NetworkTopology: Adding a new node: /default-rack/titanium
+2014-01-11 10:41:13,577 INFO org.apache.hadoop.mapred.JobTracker: Adding tracker tracker_titanium:localhost/127.0.0.1:56980 to host titanium
+2014-01-11 10:41:13,582 INFO org.apache.hadoop.net.NetworkTopology: Adding a new node: /default-rack/heisenberg
+2014-01-11 10:41:13,583 INFO org.apache.hadoop.mapred.JobTracker: Adding tracker tracker_heisenberg:localhost/127.0.0.1:32839 to host heisenberg
+2014-01-11 10:41:13,584 INFO org.apache.hadoop.mapred.JobTracker: Refreshing hosts information
+2014-01-11 10:41:13,696 INFO org.apache.hadoop.util.HostsFileReader: Setting the includes file to 
+2014-01-11 10:41:13,696 INFO org.apache.hadoop.util.HostsFileReader: Setting the excludes file to 
+2014-01-11 10:41:13,697 INFO org.apache.hadoop.util.HostsFileReader: Refreshing hosts (include/exclude) list
+2014-01-11 10:41:13,697 INFO org.apache.hadoop.mapred.JobTracker: Decommissioning 0 nodes
+2014-01-11 10:41:28,022 INFO org.apache.hadoop.net.NetworkTopology: Adding a new node: /default-rack/tungsten
+2014-01-11 10:41:28,022 INFO org.apache.hadoop.mapred.JobTracker: Adding tracker tracker_tungsten:localhost/127.0.0.1:51740 to host tungsten
+2014-01-11 10:41:40,340 INFO org.apache.hadoop.net.NetworkTopology: Adding a new node: /default-rack/silicon
+2014-01-11 10:41:40,341 INFO org.apache.hadoop.mapred.JobTracker: Adding tracker tracker_silicon:localhost/127.0.0.1:45881 to host silicon
+2014-01-11 10:41:40,345 INFO org.apache.hadoop.mapred.JobTracker: Starting RUNNING
+2014-01-11 10:47:23,930 INFO org.apache.hadoop.mapred.JobTracker: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down JobTracker at heisenberg/127.0.1.1
+************************************************************/

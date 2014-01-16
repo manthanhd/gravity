@@ -1,0 +1,16 @@
+2014-01-16 09:09:17,214 INFO org.apache.hadoop.util.NativeCodeLoader: Loaded the native-hadoop library
+2014-01-16 09:09:17,660 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2014-01-16 09:09:17,821 INFO org.apache.hadoop.util.ProcessTree: setsid exited with exit code 0
+2014-01-16 09:09:17,825 INFO org.apache.hadoop.mapred.Task:  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@72608760
+2014-01-16 09:09:17,933 INFO org.apache.hadoop.mapred.MapTask: Processing split: hdfs://heisenberg:54310/user/hduser/PiEstimator_TMP_3_141592654/in/part1:0+118
+2014-01-16 09:09:17,969 INFO org.apache.hadoop.mapred.MapTask: numReduceTasks: 1
+2014-01-16 09:09:17,975 INFO org.apache.hadoop.mapred.MapTask: io.sort.mb = 100
+2014-01-16 09:09:18,065 INFO org.apache.hadoop.mapred.MapTask: data buffer = 79691776/99614720
+2014-01-16 09:09:18,065 INFO org.apache.hadoop.mapred.MapTask: record buffer = 262144/327680
+2014-01-16 09:09:18,093 INFO org.apache.hadoop.mapred.MapTask: Starting flush of map output
+2014-01-16 09:09:18,099 INFO org.apache.hadoop.mapred.MapTask: Finished spill 0
+2014-01-16 09:09:18,111 INFO org.apache.hadoop.mapred.Task: Task:attempt_201401160905_0005_m_000001_0 is done. And is in the process of commiting
+2014-01-16 09:09:18,162 INFO org.apache.hadoop.mapred.Task: Task 'attempt_201401160905_0005_m_000001_0' done.
+2014-01-16 09:09:18,229 INFO org.apache.hadoop.mapred.TaskLogsTruncater: Initializing logs' truncater with mapRetainSize=-1 and reduceRetainSize=-1
+2014-01-16 09:09:18,322 INFO org.apache.hadoop.io.nativeio.NativeIO: Initialized cache for UID to User mapping with a cache timeout of 14400 seconds.
+2014-01-16 09:09:18,322 INFO org.apache.hadoop.io.nativeio.NativeIO: Got UserName hduser for UID 1001 from the native implementation

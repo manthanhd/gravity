@@ -1,0 +1,736 @@
+2014-01-15 19:06:01,010 INFO org.apache.hadoop.util.NativeCodeLoader: Loaded the native-hadoop library
+2014-01-15 19:06:01,357 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2014-01-15 19:06:01,484 INFO org.apache.hadoop.util.ProcessTree: setsid exited with exit code 0
+2014-01-15 19:06:01,489 INFO org.apache.hadoop.mapred.Task:  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@44d6b059
+2014-01-15 19:06:01,586 INFO org.apache.hadoop.mapred.ReduceTask: ShuffleRamManager: MemoryLimit=141937872, MaxSingleShuffleLimit=35484468
+2014-01-15 19:06:01,590 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Thread started: Thread for merging on-disk files
+2014-01-15 19:06:01,591 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Thread waiting: Thread for merging on-disk files
+2014-01-15 19:06:01,597 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Thread started: Thread for merging in memory files
+2014-01-15 19:06:01,599 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 4 map output(s) where 0 is already in progress
+2014-01-15 19:06:01,599 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 0 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:06:01,599 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Thread started: Thread for polling Map Completion Events
+2014-01-15 19:06:06,600 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 4 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:06:18,192 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:06:18,192 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:06:18,192 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #1 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:06:18,193 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 12 seconds
+2014-01-15 19:06:18,193 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:06:18,194 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:06:18,194 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #1 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:06:18,194 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 12 seconds
+2014-01-15 19:06:18,412 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:06:18,413 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:06:18,413 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #1 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:06:18,413 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 12 seconds
+2014-01-15 19:06:18,413 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 3 map-outputs from previous failures
+2014-01-15 19:06:33,416 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 3 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:06:43,447 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:06:43,447 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:06:43,447 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #2 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:06:43,447 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 16 seconds
+2014-01-15 19:06:43,592 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:06:43,593 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:06:43,593 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:06:43,594 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #2 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:06:43,594 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 16 seconds
+2014-01-15 19:06:43,594 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:06:43,594 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #2 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:06:43,594 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 16 seconds
+2014-01-15 19:06:43,594 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 3 map-outputs from previous failures
+2014-01-15 19:07:03,597 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 0 is already in progress
+2014-01-15 19:07:03,598 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 3 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:07:13,938 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:07:13,938 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:07:13,938 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #3 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:07:13,938 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 21 seconds
+2014-01-15 19:07:14,016 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:07:14,016 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:07:14,016 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #3 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:07:14,017 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 21 seconds
+2014-01-15 19:07:16,017 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 2 map-outputs from previous failures
+2014-01-15 19:07:17,511 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:07:17,511 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:07:17,511 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #3 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:07:17,511 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 21 seconds
+2014-01-15 19:07:17,511 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 1 map-outputs from previous failures
+2014-01-15 19:07:37,515 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 2 outputs (1 slow hosts and0 dup hosts)
+2014-01-15 19:07:39,516 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 1 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:07:47,944 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:07:47,944 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:07:47,944 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #4 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:07:47,944 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 28 seconds
+2014-01-15 19:07:47,974 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:07:47,975 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:07:47,975 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #4 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:07:47,975 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 28 seconds
+2014-01-15 19:07:49,535 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:07:49,537 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:07:49,540 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #4 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:07:49,540 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 28 seconds
+2014-01-15 19:07:49,540 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 3 map-outputs from previous failures
+2014-01-15 19:08:04,543 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 0 is already in progress
+2014-01-15 19:08:04,543 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 0 outputs (3 slow hosts and0 dup hosts)
+2014-01-15 19:08:04,543 INFO org.apache.hadoop.mapred.ReduceTask: Penalized(slow) Hosts: 
+2014-01-15 19:08:04,543 INFO org.apache.hadoop.mapred.ReduceTask: silicon Will be considered after: 11 seconds.
+2014-01-15 19:08:04,543 INFO org.apache.hadoop.mapred.ReduceTask: titanium Will be considered after: 11 seconds.
+2014-01-15 19:08:04,543 INFO org.apache.hadoop.mapred.ReduceTask: tungsten Will be considered after: 13 seconds.
+2014-01-15 19:08:19,546 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 3 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:08:29,660 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:08:29,662 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:08:29,661 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:08:29,662 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:08:29,662 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:08:29,662 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:08:29,662 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #5 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:08:29,663 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 37 seconds
+2014-01-15 19:08:29,663 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #5 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:08:29,663 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 37 seconds
+2014-01-15 19:08:29,663 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #5 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:08:29,663 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 37 seconds
+2014-01-15 19:08:29,663 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 3 map-outputs from previous failures
+2014-01-15 19:09:04,667 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 0 is already in progress
+2014-01-15 19:09:04,668 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 0 outputs (3 slow hosts and0 dup hosts)
+2014-01-15 19:09:04,668 INFO org.apache.hadoop.mapred.ReduceTask: Penalized(slow) Hosts: 
+2014-01-15 19:09:04,668 INFO org.apache.hadoop.mapred.ReduceTask: silicon Will be considered after: 2 seconds.
+2014-01-15 19:09:04,668 INFO org.apache.hadoop.mapred.ReduceTask: titanium Will be considered after: 2 seconds.
+2014-01-15 19:09:04,668 INFO org.apache.hadoop.mapred.ReduceTask: tungsten Will be considered after: 2 seconds.
+2014-01-15 19:09:09,668 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 3 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:09:19,722 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:09:19,723 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:09:19,723 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #6 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:09:19,723 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 48 seconds
+2014-01-15 19:09:20,169 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:09:20,174 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:09:20,174 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #6 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:09:20,174 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 48 seconds
+2014-01-15 19:09:22,175 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 2 map-outputs from previous failures
+2014-01-15 19:09:23,511 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:09:23,511 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:09:23,511 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #6 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:09:23,511 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 48 seconds
+2014-01-15 19:09:23,512 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 1 map-outputs from previous failures
+2014-01-15 19:10:08,519 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 0 is already in progress
+2014-01-15 19:10:08,521 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 2 outputs (1 slow hosts and0 dup hosts)
+2014-01-15 19:10:08,521 INFO org.apache.hadoop.mapred.ReduceTask: Penalized(slow) Hosts: 
+2014-01-15 19:10:08,521 INFO org.apache.hadoop.mapred.ReduceTask: titanium Will be considered after: 3 seconds.
+2014-01-15 19:10:12,523 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 1 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:10:20,330 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:10:20,331 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:10:20,331 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #7 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:10:20,331 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 62 seconds
+2014-01-15 19:10:20,332 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:10:20,332 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:10:20,332 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #7 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:10:20,332 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 62 seconds
+2014-01-15 19:10:22,333 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 2 map-outputs from previous failures
+2014-01-15 19:10:22,656 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:10:22,656 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:10:22,656 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #7 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:10:22,656 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 62 seconds
+2014-01-15 19:10:22,656 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 1 map-outputs from previous failures
+2014-01-15 19:11:12,666 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 0 is already in progress
+2014-01-15 19:11:12,666 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 0 outputs (3 slow hosts and0 dup hosts)
+2014-01-15 19:11:12,666 INFO org.apache.hadoop.mapred.ReduceTask: Penalized(slow) Hosts: 
+2014-01-15 19:11:12,666 INFO org.apache.hadoop.mapred.ReduceTask: tungsten Will be considered after: 10 seconds.
+2014-01-15 19:11:12,666 INFO org.apache.hadoop.mapred.ReduceTask: silicon Will be considered after: 10 seconds.
+2014-01-15 19:11:12,666 INFO org.apache.hadoop.mapred.ReduceTask: titanium Will be considered after: 12 seconds.
+2014-01-15 19:11:27,668 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 3 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:11:37,817 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:11:37,818 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:11:37,818 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:11:37,819 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:11:37,819 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #8 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:11:37,819 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 81 seconds
+2014-01-15 19:11:37,819 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #8 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:11:37,819 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 81 seconds
+2014-01-15 19:11:37,822 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:11:37,822 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:11:37,822 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #8 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:11:37,822 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 81 seconds
+2014-01-15 19:11:37,822 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 3 map-outputs from previous failures
+2014-01-15 19:12:12,827 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 0 is already in progress
+2014-01-15 19:12:12,828 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 0 outputs (3 slow hosts and0 dup hosts)
+2014-01-15 19:12:12,828 INFO org.apache.hadoop.mapred.ReduceTask: Penalized(slow) Hosts: 
+2014-01-15 19:12:12,828 INFO org.apache.hadoop.mapred.ReduceTask: tungsten Will be considered after: 46 seconds.
+2014-01-15 19:12:12,828 INFO org.apache.hadoop.mapred.ReduceTask: silicon Will be considered after: 46 seconds.
+2014-01-15 19:12:12,828 INFO org.apache.hadoop.mapred.ReduceTask: titanium Will be considered after: 46 seconds.
+2014-01-15 19:13:02,836 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 3 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:13:12,840 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 3 is already in progress
+2014-01-15 19:13:12,840 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 0 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:13:13,156 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:13:13,156 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:13:13,157 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #9 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:13:13,157 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 106 seconds
+2014-01-15 19:13:13,158 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:13:13,158 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:13:13,158 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #9 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:13:13,158 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 106 seconds
+2014-01-15 19:13:15,159 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 2 map-outputs from previous failures
+2014-01-15 19:13:16,108 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:13:16,108 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:13:16,108 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #9 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:13:16,108 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host silicon to penalty box, next contact in 106 seconds
+2014-01-15 19:13:16,108 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0: Got 1 map-outputs from previous failures
+2014-01-15 19:14:16,117 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Need another 3 map output(s) where 0 is already in progress
+2014-01-15 19:14:16,117 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 0 outputs (3 slow hosts and0 dup hosts)
+2014-01-15 19:14:16,117 INFO org.apache.hadoop.mapred.ReduceTask: Penalized(slow) Hosts: 
+2014-01-15 19:14:16,117 INFO org.apache.hadoop.mapred.ReduceTask: tungsten Will be considered after: 43 seconds.
+2014-01-15 19:14:16,117 INFO org.apache.hadoop.mapred.ReduceTask: titanium Will be considered after: 43 seconds.
+2014-01-15 19:14:16,117 INFO org.apache.hadoop.mapred.ReduceTask: silicon Will be considered after: 46 seconds.
+2014-01-15 19:15:01,125 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 2 outputs (1 slow hosts and0 dup hosts)
+2014-01-15 19:15:03,125 INFO org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 Scheduled 1 outputs (0 slow hosts and0 dup hosts)
+2014-01-15 19:15:11,390 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000001_0 from titanium
+2014-01-15 19:15:11,390 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: titanium
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:15:11,390 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #10 from attempt_201401151903_0001_m_000001_0
+2014-01-15 19:15:11,390 INFO org.apache.hadoop.mapred.ReduceTask: Failed to fetch map-output from attempt_201401151903_0001_m_000001_0 even after MAX_FETCH_RETRIES_PER_MAP retries...  or it is a read error,  reporting to the JobTracker
+2014-01-15 19:15:11,390 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host titanium to penalty box, next contact in 137 seconds
+2014-01-15 19:15:12,672 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000003_0 from tungsten
+2014-01-15 19:15:12,673 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: tungsten
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:15:12,673 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #10 from attempt_201401151903_0001_m_000003_0
+2014-01-15 19:15:12,673 INFO org.apache.hadoop.mapred.ReduceTask: Failed to fetch map-output from attempt_201401151903_0001_m_000003_0 even after MAX_FETCH_RETRIES_PER_MAP retries...  or it is a read error,  reporting to the JobTracker
+2014-01-15 19:15:12,673 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 adding host tungsten to penalty box, next contact in 137 seconds
+2014-01-15 19:15:13,223 WARN org.apache.hadoop.mapred.ReduceTask: attempt_201401151903_0001_r_000000_0 copy failed: attempt_201401151903_0001_m_000002_0 from silicon
+2014-01-15 19:15:13,223 WARN org.apache.hadoop.mapred.ReduceTask: java.net.UnknownHostException: silicon
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:411)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:525)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:208)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:291)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:310)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:987)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:923)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:841)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getInputStream(ReduceTask.java:1636)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.setupSecureConnection(ReduceTask.java:1593)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.getMapOutput(ReduceTask.java:1493)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.copyOutput(ReduceTask.java:1401)
+	at org.apache.hadoop.mapred.ReduceTask$ReduceCopier$MapOutputCopier.run(ReduceTask.java:1333)
+
+2014-01-15 19:15:13,224 INFO org.apache.hadoop.mapred.ReduceTask: Task attempt_201401151903_0001_r_000000_0: Failed fetch #10 from attempt_201401151903_0001_m_000002_0
+2014-01-15 19:15:13,224 INFO org.apache.hadoop.mapred.ReduceTask: Failed to fetch map-output from attempt_201401151903_0001_m_000002_0 even after MAX_FETCH_RETRIES_PER_MAP retries...  or it is a read error,  reporting to the JobTracker
+2014-01-15 19:15:13,224 FATAL org.apache.hadoop.mapred.ReduceTask: Shuffle failed with too many fetch failures and insufficient progress!Killing task attempt_201401151903_0001_r_000000_0.

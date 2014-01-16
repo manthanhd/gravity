@@ -1,0 +1,179 @@
+2014-01-11 10:39:25,845 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting DataNode
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2014-01-11 10:39:26,339 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2014-01-11 10:39:26,363 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2014-01-11 10:39:26,364 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2014-01-11 10:39:26,364 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: DataNode metrics system started
+2014-01-11 10:39:27,371 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2014-01-11 10:39:27,415 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2014-01-11 10:39:27,830 INFO org.apache.hadoop.util.NativeCodeLoader: Loaded the native-hadoop library
+2014-01-11 10:39:30,199 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:31,201 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:32,202 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:33,204 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:34,205 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:35,206 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:36,208 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:37,210 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:38,211 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:39,213 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:39,215 INFO org.apache.hadoop.ipc.RPC: Server at heisenberg.dnsdynamic.net/192.168.71.128:54310 not available yet, Zzzzz...
+2014-01-11 10:39:41,218 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:42,220 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:43,221 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:44,223 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:45,225 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:46,226 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:47,227 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:48,229 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:49,230 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:50,232 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:50,233 INFO org.apache.hadoop.ipc.RPC: Server at heisenberg.dnsdynamic.net/192.168.71.128:54310 not available yet, Zzzzz...
+2014-01-11 10:39:52,236 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:53,237 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:54,238 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:55,239 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:56,241 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:57,242 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:58,244 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:39:59,246 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:00,340 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:01,342 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:01,343 INFO org.apache.hadoop.ipc.RPC: Server at heisenberg.dnsdynamic.net/192.168.71.128:54310 not available yet, Zzzzz...
+2014-01-11 10:40:03,345 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:04,347 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:05,348 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:06,350 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:07,353 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:08,354 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:09,355 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:10,356 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:11,358 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:12,359 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:12,360 INFO org.apache.hadoop.ipc.RPC: Server at heisenberg.dnsdynamic.net/192.168.71.128:54310 not available yet, Zzzzz...
+2014-01-11 10:40:14,362 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:15,364 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:40:16,066 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down DataNode at heisenberg/127.0.1.1
+************************************************************/
+2014-01-11 10:40:34,261 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting DataNode
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2014-01-11 10:40:35,325 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2014-01-11 10:40:35,375 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2014-01-11 10:40:35,381 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2014-01-11 10:40:35,381 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: DataNode metrics system started
+2014-01-11 10:40:37,238 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2014-01-11 10:40:37,310 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2014-01-11 10:40:48,772 INFO org.apache.hadoop.hdfs.server.common.Storage: Storage directory /tmp/hadoop-hduser/dfs/data is not formatted
+2014-01-11 10:40:48,772 INFO org.apache.hadoop.hdfs.server.common.Storage: Formatting ...
+2014-01-11 10:40:49,019 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Registered FSDatasetStatusMBean
+2014-01-11 10:40:49,148 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Opened data transfer server at 50010
+2014-01-11 10:40:49,167 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Balancing bandwith is 1048576 bytes/s
+2014-01-11 10:40:49,223 INFO org.apache.hadoop.util.NativeCodeLoader: Loaded the native-hadoop library
+2014-01-11 10:40:50,252 INFO org.mortbay.log: Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2014-01-11 10:40:51,185 INFO org.apache.hadoop.http.HttpServer: Added global filtersafety (class=org.apache.hadoop.http.HttpServer$QuotingInputFilter)
+2014-01-11 10:40:51,321 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: dfs.webhdfs.enabled = false
+2014-01-11 10:40:51,322 INFO org.apache.hadoop.http.HttpServer: Port returned by webServer.getConnectors()[0].getLocalPort() before open() is -1. Opening the listener on 50075
+2014-01-11 10:40:51,322 INFO org.apache.hadoop.http.HttpServer: listener.getLocalPort() returned 50075 webServer.getConnectors()[0].getLocalPort() returned 50075
+2014-01-11 10:40:51,322 INFO org.apache.hadoop.http.HttpServer: Jetty bound to port 50075
+2014-01-11 10:40:51,322 INFO org.mortbay.log: jetty-6.1.26
+2014-01-11 10:40:55,791 INFO org.mortbay.log: Started SelectChannelConnector@0.0.0.0:50075
+2014-01-11 10:40:55,812 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source jvm registered.
+2014-01-11 10:40:55,822 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source DataNode registered.
+2014-01-11 10:40:58,118 INFO org.apache.hadoop.ipc.Server: Starting SocketReader
+2014-01-11 10:40:58,123 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source RpcDetailedActivityForPort50020 registered.
+2014-01-11 10:40:58,124 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source RpcActivityForPort50020 registered.
+2014-01-11 10:40:58,153 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: dnRegistration = DatanodeRegistration(heisenberg:50010, storageID=, infoPort=50075, ipcPort=50020)
+2014-01-11 10:40:58,176 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: New storage id DS-735019483-127.0.1.1-50010-1389436858164 is assigned to data-node 192.168.71.128:50010
+2014-01-11 10:40:58,177 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Finished generating blocks being written report for 1 volumes in 0 seconds
+2014-01-11 10:40:58,181 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Finished asynchronous block report scan in 1ms
+2014-01-11 10:40:58,183 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: DatanodeRegistration(192.168.71.128:50010, storageID=DS-735019483-127.0.1.1-50010-1389436858164, infoPort=50075, ipcPort=50020)In DataNode.run, data = FSDataset{dirpath='/tmp/hadoop-hduser/dfs/data/current'}
+2014-01-11 10:40:58,203 INFO org.apache.hadoop.ipc.Server: IPC Server listener on 50020: starting
+2014-01-11 10:40:58,194 INFO org.apache.hadoop.ipc.Server: IPC Server Responder: starting
+2014-01-11 10:40:58,212 INFO org.apache.hadoop.ipc.Server: IPC Server handler 1 on 50020: starting
+2014-01-11 10:40:58,213 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: using BLOCKREPORT_INTERVAL of 3600000msec Initial delay: 0msec
+2014-01-11 10:40:58,215 INFO org.apache.hadoop.ipc.Server: IPC Server handler 0 on 50020: starting
+2014-01-11 10:40:58,224 INFO org.apache.hadoop.ipc.Server: IPC Server handler 2 on 50020: starting
+2014-01-11 10:40:58,228 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: BlockReport of 0 blocks took 0 msec to generate and 2 msecs for RPC and NN processing
+2014-01-11 10:40:58,229 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Starting Periodic block scanner
+2014-01-11 10:40:58,233 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Generated rough (lockless) block report in 0 ms
+2014-01-11 10:41:03,625 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_3152119439103514438_1001 src: /192.168.71.128:36795 dest: /192.168.71.128:50010
+2014-01-11 10:41:04,064 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36795, dest: /192.168.71.128:50010, bytes: 4, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-1759040019_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_3152119439103514438_1001, duration: 39028926
+2014-01-11 10:41:04,064 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_3152119439103514438_1001 terminating
+2014-01-11 10:41:08,451 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-8182706218715615350_1002 src: /192.168.71.128:36799 dest: /192.168.71.128:50010
+2014-01-11 10:41:08,854 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36799, dest: /192.168.71.128:50010, bytes: 343691, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_1807165588_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-8182706218715615350_1002, duration: 165655830
+2014-01-11 10:41:08,854 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-8182706218715615350_1002 terminating
+2014-01-11 10:41:08,907 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-848620391996788598_1003 src: /192.168.71.128:36801 dest: /192.168.71.128:50010
+2014-01-11 10:41:09,070 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36801, dest: /192.168.71.128:50010, bytes: 1423803, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_1807165588_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-848620391996788598_1003, duration: 148649430
+2014-01-11 10:41:09,071 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-848620391996788598_1003 terminating
+2014-01-11 10:41:09,101 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-8792879914161778134_1004 src: /192.168.71.128:36803 dest: /192.168.71.128:50010
+2014-01-11 10:41:09,243 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36803, dest: /192.168.71.128:50010, bytes: 1573150, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_1807165588_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-8792879914161778134_1004, duration: 118891282
+2014-01-11 10:41:09,243 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-8792879914161778134_1004 terminating
+2014-01-11 10:41:09,277 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-7153420010502294955_1005 src: /192.168.71.128:36805 dest: /192.168.71.128:50010
+2014-01-11 10:41:09,316 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36805, dest: /192.168.71.128:50010, bytes: 393968, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_1807165588_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-7153420010502294955_1005, duration: 23006861
+2014-01-11 10:41:09,317 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-7153420010502294955_1005 terminating
+2014-01-11 10:41:09,357 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_5696993719529185560_1006 src: /192.168.71.128:36807 dest: /192.168.71.128:50010
+2014-01-11 10:41:09,437 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36807, dest: /192.168.71.128:50010, bytes: 594933, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_1807165588_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_5696993719529185560_1006, duration: 70849369
+2014-01-11 10:41:09,439 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_5696993719529185560_1006 terminating
+2014-01-11 10:41:09,475 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-3003123932746521223_1007 src: /192.168.71.128:36809 dest: /192.168.71.128:50010
+2014-01-11 10:41:09,810 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36809, dest: /192.168.71.128:50010, bytes: 1945886, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_1807165588_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-3003123932746521223_1007, duration: 323141003
+2014-01-11 10:41:09,811 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-3003123932746521223_1007 terminating
+2014-01-11 10:41:09,848 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-5601464070871050611_1008 src: /192.168.71.128:36811 dest: /192.168.71.128:50010
+2014-01-11 10:41:09,963 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36811, dest: /192.168.71.128:50010, bytes: 674570, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_1807165588_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-5601464070871050611_1008, duration: 106065750
+2014-01-11 10:41:09,968 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-5601464070871050611_1008 terminating
+2014-01-11 10:42:11,308 INFO org.apache.hadoop.hdfs.server.datanode.DataBlockScanner: Verification succeeded blk_3152119439103514438_1001
+2014-01-11 10:45:49,707 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_7705889638499345293_1009 src: /192.168.71.128:36817 dest: /192.168.71.128:50010
+2014-01-11 10:45:49,873 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36817, dest: /192.168.71.128:50010, bytes: 343691, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-361899519_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_7705889638499345293_1009, duration: 103374327
+2014-01-11 10:45:49,877 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_7705889638499345293_1009 terminating
+2014-01-11 10:45:49,928 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_4496791775495755515_1010 src: /192.168.71.128:36819 dest: /192.168.71.128:50010
+2014-01-11 10:45:50,250 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36819, dest: /192.168.71.128:50010, bytes: 1423803, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-361899519_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_4496791775495755515_1010, duration: 292742155
+2014-01-11 10:45:50,253 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_4496791775495755515_1010 terminating
+2014-01-11 10:45:50,294 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-2293226950530657247_1011 src: /192.168.71.128:36821 dest: /192.168.71.128:50010
+2014-01-11 10:45:50,728 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36821, dest: /192.168.71.128:50010, bytes: 1573150, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-361899519_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-2293226950530657247_1011, duration: 208915824
+2014-01-11 10:45:50,729 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-2293226950530657247_1011 terminating
+2014-01-11 10:45:50,785 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-8153608640795896990_1012 src: /192.168.71.128:36823 dest: /192.168.71.128:50010
+2014-01-11 10:45:50,843 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36823, dest: /192.168.71.128:50010, bytes: 393968, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-361899519_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-8153608640795896990_1012, duration: 40811523
+2014-01-11 10:45:50,848 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-8153608640795896990_1012 terminating
+2014-01-11 10:45:50,898 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-101693598733153992_1013 src: /192.168.71.128:36825 dest: /192.168.71.128:50010
+2014-01-11 10:45:50,975 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36825, dest: /192.168.71.128:50010, bytes: 594933, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-361899519_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-101693598733153992_1013, duration: 56241680
+2014-01-11 10:45:50,978 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-101693598733153992_1013 terminating
+2014-01-11 10:45:51,026 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-5084701988901733151_1014 src: /192.168.71.128:36827 dest: /192.168.71.128:50010
+2014-01-11 10:45:51,264 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36827, dest: /192.168.71.128:50010, bytes: 1945886, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-361899519_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-5084701988901733151_1014, duration: 221919743
+2014-01-11 10:45:51,267 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-5084701988901733151_1014 terminating
+2014-01-11 10:45:51,313 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: Receiving blk_-3764273107608965385_1015 src: /192.168.71.128:36829 dest: /192.168.71.128:50010
+2014-01-11 10:45:51,388 INFO org.apache.hadoop.hdfs.server.datanode.DataNode.clienttrace: src: /192.168.71.128:36829, dest: /192.168.71.128:50010, bytes: 674570, op: HDFS_WRITE, cliID: DFSClient_NONMAPREDUCE_-361899519_1, offset: 0, srvID: DS-735019483-127.0.1.1-50010-1389436858164, blockid: blk_-3764273107608965385_1015, duration: 60947529
+2014-01-11 10:45:51,397 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: PacketResponder 1 for blk_-3764273107608965385_1015 terminating
+2014-01-11 10:47:40,357 WARN org.apache.hadoop.hdfs.server.datanode.DataNode: java.io.IOException: Call to heisenberg.dnsdynamic.net/192.168.71.128:54310 failed on local exception: java.io.EOFException
+	at org.apache.hadoop.ipc.Client.wrapException(Client.java:1150)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1118)
+	at org.apache.hadoop.ipc.RPC$Invoker.invoke(RPC.java:229)
+	at $Proxy5.sendHeartbeat(Unknown Source)
+	at org.apache.hadoop.hdfs.server.datanode.DataNode.offerService(DataNode.java:1031)
+	at org.apache.hadoop.hdfs.server.datanode.DataNode.run(DataNode.java:1588)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:375)
+	at org.apache.hadoop.ipc.Client$Connection.receiveResponse(Client.java:845)
+	at org.apache.hadoop.ipc.Client$Connection.run(Client.java:790)
+
+2014-01-11 10:47:42,627 INFO org.apache.hadoop.hdfs.server.datanode.DataBlockScanner: Verification succeeded blk_-7153420010502294955_1005
+2014-01-11 10:47:44,365 INFO org.apache.hadoop.ipc.Client: Retrying connect to server: heisenberg.dnsdynamic.net/192.168.71.128:54310. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1 SECONDS)
+2014-01-11 10:47:45,090 INFO org.apache.hadoop.hdfs.server.datanode.DataNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down DataNode at heisenberg/127.0.1.1
+************************************************************/

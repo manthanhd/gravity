@@ -1,0 +1,138 @@
+2013-11-17 12:47:50,209 INFO org.apache.hadoop.mapred.JobTracker: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting JobTracker
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2013-11-17 12:47:50,660 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2013-11-17 12:47:50,689 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2013-11-17 12:47:50,690 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2013-11-17 12:47:50,691 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: JobTracker metrics system started
+2013-11-17 12:47:51,707 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source QueueMetrics,q=default registered.
+2013-11-17 12:47:54,836 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2013-11-17 12:47:54,844 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2013-11-17 12:47:54,846 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2013-11-17 12:47:54,866 INFO org.apache.hadoop.mapred.JobTracker: Scheduler configured with (memSizeForMapSlotOnJT, memSizeForReduceSlotOnJT, limitMaxMemForMapTasks, limitMaxMemForReduceTasks) (-1, -1, -1, -1)
+2013-11-17 12:47:54,867 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Starting expired delegation token remover thread, tokenRemoverScanInterval=60 min(s)
+2013-11-17 12:47:54,869 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2013-11-17 12:47:54,871 INFO org.apache.hadoop.util.HostsFileReader: Refreshing hosts (include/exclude) list
+2013-11-17 12:47:54,915 INFO org.apache.hadoop.mapred.JobTracker: Starting jobtracker with owner as hduser
+2013-11-17 12:47:55,020 FATAL org.apache.hadoop.mapred.JobTracker: java.net.BindException: Problem binding to master/192.168.71.137:54311 : Cannot assign requested address
+	at org.apache.hadoop.ipc.Server.bind(Server.java:267)
+	at org.apache.hadoop.ipc.Server$Listener.<init>(Server.java:341)
+	at org.apache.hadoop.ipc.Server.<init>(Server.java:1539)
+	at org.apache.hadoop.ipc.RPC$Server.<init>(RPC.java:569)
+	at org.apache.hadoop.ipc.RPC.getServer(RPC.java:530)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1985)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1689)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1683)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:320)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:311)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:306)
+	at org.apache.hadoop.mapred.JobTracker.main(JobTracker.java:4710)
+Caused by: java.net.BindException: Cannot assign requested address
+	at sun.nio.ch.Net.bind(Native Method)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:124)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:59)
+	at org.apache.hadoop.ipc.Server.bind(Server.java:265)
+	... 11 more
+
+2013-11-17 12:47:55,057 INFO org.apache.hadoop.mapred.JobTracker: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down JobTracker at heisenberg/127.0.1.1
+************************************************************/
+2013-11-17 12:56:59,953 INFO org.apache.hadoop.mapred.JobTracker: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting JobTracker
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2013-11-17 12:57:00,386 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2013-11-17 12:57:00,420 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2013-11-17 12:57:00,422 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2013-11-17 12:57:00,422 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: JobTracker metrics system started
+2013-11-17 12:57:01,045 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source QueueMetrics,q=default registered.
+2013-11-17 12:57:03,890 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2013-11-17 12:57:03,891 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2013-11-17 12:57:03,913 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2013-11-17 12:57:03,934 INFO org.apache.hadoop.mapred.JobTracker: Scheduler configured with (memSizeForMapSlotOnJT, memSizeForReduceSlotOnJT, limitMaxMemForMapTasks, limitMaxMemForReduceTasks) (-1, -1, -1, -1)
+2013-11-17 12:57:03,941 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Starting expired delegation token remover thread, tokenRemoverScanInterval=60 min(s)
+2013-11-17 12:57:03,967 INFO org.apache.hadoop.util.HostsFileReader: Refreshing hosts (include/exclude) list
+2013-11-17 12:57:03,968 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2013-11-17 12:57:04,075 INFO org.apache.hadoop.mapred.JobTracker: Starting jobtracker with owner as hduser
+2013-11-17 12:57:04,327 FATAL org.apache.hadoop.mapred.JobTracker: java.net.BindException: Problem binding to master/192.168.71.137:54311 : Cannot assign requested address
+	at org.apache.hadoop.ipc.Server.bind(Server.java:267)
+	at org.apache.hadoop.ipc.Server$Listener.<init>(Server.java:341)
+	at org.apache.hadoop.ipc.Server.<init>(Server.java:1539)
+	at org.apache.hadoop.ipc.RPC$Server.<init>(RPC.java:569)
+	at org.apache.hadoop.ipc.RPC.getServer(RPC.java:530)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1985)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1689)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1683)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:320)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:311)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:306)
+	at org.apache.hadoop.mapred.JobTracker.main(JobTracker.java:4710)
+Caused by: java.net.BindException: Cannot assign requested address
+	at sun.nio.ch.Net.bind(Native Method)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:124)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:59)
+	at org.apache.hadoop.ipc.Server.bind(Server.java:265)
+	... 11 more
+
+2013-11-17 12:57:04,348 INFO org.apache.hadoop.mapred.JobTracker: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down JobTracker at heisenberg/127.0.1.1
+************************************************************/
+2013-11-17 13:21:44,149 INFO org.apache.hadoop.mapred.JobTracker: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting JobTracker
+STARTUP_MSG:   host = heisenberg/127.0.1.1
+STARTUP_MSG:   args = []
+STARTUP_MSG:   version = 1.2.1
+STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
+STARTUP_MSG:   java = 1.6.0_38
+************************************************************/
+2013-11-17 13:21:44,310 INFO org.apache.hadoop.metrics2.impl.MetricsConfig: loaded properties from hadoop-metrics2.properties
+2013-11-17 13:21:44,323 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source MetricsSystem,sub=Stats registered.
+2013-11-17 13:21:44,323 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Scheduled snapshot period at 10 second(s).
+2013-11-17 13:21:44,323 INFO org.apache.hadoop.metrics2.impl.MetricsSystemImpl: JobTracker metrics system started
+2013-11-17 13:21:44,541 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source QueueMetrics,q=default registered.
+2013-11-17 13:21:45,109 INFO org.apache.hadoop.metrics2.impl.MetricsSourceAdapter: MBean for source ugi registered.
+2013-11-17 13:21:45,109 WARN org.apache.hadoop.metrics2.impl.MetricsSystemImpl: Source name ugi already exists!
+2013-11-17 13:21:45,110 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2013-11-17 13:21:45,119 INFO org.apache.hadoop.mapred.JobTracker: Scheduler configured with (memSizeForMapSlotOnJT, memSizeForReduceSlotOnJT, limitMaxMemForMapTasks, limitMaxMemForReduceTasks) (-1, -1, -1, -1)
+2013-11-17 13:21:45,120 INFO org.apache.hadoop.util.HostsFileReader: Refreshing hosts (include/exclude) list
+2013-11-17 13:21:45,123 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Starting expired delegation token remover thread, tokenRemoverScanInterval=60 min(s)
+2013-11-17 13:21:45,123 INFO org.apache.hadoop.security.token.delegation.AbstractDelegationTokenSecretManager: Updating the current master key for generating delegation tokens
+2013-11-17 13:21:45,140 INFO org.apache.hadoop.mapred.JobTracker: Starting jobtracker with owner as hduser
+2013-11-17 13:21:45,203 FATAL org.apache.hadoop.mapred.JobTracker: java.net.BindException: Problem binding to master/192.168.71.137:54311 : Cannot assign requested address
+	at org.apache.hadoop.ipc.Server.bind(Server.java:267)
+	at org.apache.hadoop.ipc.Server$Listener.<init>(Server.java:341)
+	at org.apache.hadoop.ipc.Server.<init>(Server.java:1539)
+	at org.apache.hadoop.ipc.RPC$Server.<init>(RPC.java:569)
+	at org.apache.hadoop.ipc.RPC.getServer(RPC.java:530)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1985)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1689)
+	at org.apache.hadoop.mapred.JobTracker.<init>(JobTracker.java:1683)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:320)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:311)
+	at org.apache.hadoop.mapred.JobTracker.startTracker(JobTracker.java:306)
+	at org.apache.hadoop.mapred.JobTracker.main(JobTracker.java:4710)
+Caused by: java.net.BindException: Cannot assign requested address
+	at sun.nio.ch.Net.bind(Native Method)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:124)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:59)
+	at org.apache.hadoop.ipc.Server.bind(Server.java:265)
+	... 11 more
+
+2013-11-17 13:21:45,206 INFO org.apache.hadoop.mapred.JobTracker: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down JobTracker at heisenberg/127.0.1.1
+************************************************************/
