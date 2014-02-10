@@ -107,7 +107,7 @@ public class TwitterDataSource implements DataSource{
    
     public void dumpToFile(String filename, List<SocialDatum> statuses){
         try {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
                 Gson gson = new Gson();
                 for(SocialDatum sdatum : statuses){
                     writer.write(gson.toJson(sdatum) + System.lineSeparator());

@@ -28,7 +28,10 @@ public class TweetListener implements StatusListener{
         tweets = new ArrayList<>();
         logger = Logger.getLogger(TweetListener.class.getName());
     }
+    
     MySQLTwitterDBHandler handler = new MySQLTwitterDBHandler("mysql.cms.gre.ac.uk", "mdb_dm014", "dm014", "apexze8Q");
+    String filename = "C:\\Users\\manthanhd\\Documents\\newtweets.txt";
+    
     @Override
     public void onStatus(Status status) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -38,7 +41,10 @@ public class TweetListener implements StatusListener{
         
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
+            //handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
+            // Will store to a file
+            
+            TwitterDataSource.getInstance().dumpToFile(filename, tweets);
             tweets.clear();
         }
 //        for(TwitterDatum datum2 : tweets){
@@ -69,8 +75,9 @@ public class TweetListener implements StatusListener{
 //        tweets.clear();
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
-            tweets.clear();
+            //handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
+            TwitterDataSource.getInstance().dumpToFile(filename, tweets);
+           tweets.clear();
         }
     }
 
@@ -88,7 +95,9 @@ public class TweetListener implements StatusListener{
 //        tweets.clear();
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
+            //handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
+            TwitterDataSource.getInstance().dumpToFile(filename, tweets);
+            
             tweets.clear();
         }
     }
@@ -101,7 +110,9 @@ public class TweetListener implements StatusListener{
 //        tweets.clear();
         if(tweets.size()>1000){
             logger.log(Level.INFO, "Now have " + tweets.size() + " tweets.");
-            handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
+            //handler.insert(tweets.toArray(new SocialDatum[tweets.size()]), "netra_twitterdb_incoming");
+            TwitterDataSource.getInstance().dumpToFile(filename, tweets);
+            
             tweets.clear();
         }
         logger.log(Level.INFO, "Exception:");

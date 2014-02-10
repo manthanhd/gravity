@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package netra.helpers;
+package twittermapreduce;
 
 import com.google.gson.Gson;
 import java.util.Date;
 import java.util.HashMap;
-import twitter4j.Status;
+//import twitter4j.Status;
 
 /**
  *
@@ -35,7 +35,7 @@ public class SocialDatum implements Datum {
     private Date datePosted;
     //private String countryName = null;
     
-    HashMap<String, Object> properties = new HashMap<String, Object>();
+    HashMap<String, Object> properties = new HashMap<>();
 
     //    public boolean isGeoLocationAvailable(){
     //        return geoLocationAvailable;
@@ -58,7 +58,7 @@ public class SocialDatum implements Datum {
         properties.put(Properties.RETWEET_COUNT, retweetCount);
     }
     
-    public SocialDatum(Status tweet){
+    /*public SocialDatum(Status tweet){
         data = tweet.getText();
         properties.put(Properties.USERNAME, tweet.getUser().getName());
         importance = calculateImportance(tweet);
@@ -69,7 +69,7 @@ public class SocialDatum implements Datum {
         properties.put(Properties.IS_RETWEET, tweet.isRetweet());
         properties.put(Properties.RETWEET_COUNT, tweet.getRetweetCount());
         this.datePosted = tweet.getCreatedAt();
-    }
+    }*/
     
     public HashMap<String, Object> getPropertiesMap(){
         return properties;
@@ -88,24 +88,27 @@ public class SocialDatum implements Datum {
         return data;
     }
 
-    private double calculateImportance(Status tweet) {
-        int followers = tweet.getUser().getFollowersCount();
-        int following = tweet.getUser().getFriendsCount();
-        
-        long retweets = tweet.getRetweetCount();
-        double result = 0;
-        if(following > 0){
-            result = followers / following;
-        } else {
-            result = followers;
-        }
-        if(retweets > 0 && !tweet.isRetweet()){
-            result = result * retweets;
-        }
-        return result;
-    }
+    /*
+     * Don't need this right now as this project will work with ready made data
+        private double calculateImportance(Status tweet) {
+           int followers = tweet.getUser().getFollowersCount();
+           int following = tweet.getUser().getFriendsCount();
 
-    @Override
+           long retweets = tweet.getRetweetCount();
+           double result = 0;
+           if(following > 0){
+               result = followers / following;
+           } else {
+               result = followers;
+           }
+           if(retweets > 0 && !tweet.isRetweet()){
+               result = result * retweets;
+           }
+           return result;
+       }
+    *
+    */
+
     public double getImportance() {
         return importance;
     }
