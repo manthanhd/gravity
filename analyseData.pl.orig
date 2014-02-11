@@ -11,12 +11,11 @@ GetOptions (  "dataset=s" => \$inputFile,
               "hadoopJar=s"  => \$hadoopJar,
 			  "hadoopClass=s" => \$hadoopExecutableClass,
 			  "help"			=> \$displayHelp
-		    );
+		    )
 if($displayHelp){
 	display('-dataset	<Path to the file containing data to be processed>');
 	display('-outputDir <Path to the directory where you want the output to be>');
 	display('-hadoopJar <Hadoop jar to be executed>');
-	display('-hadoopClass <Executable class in the jar file>');
 	display('-help 		<Display this help message>');
 	die("Help displayed.");
 }
@@ -26,10 +25,10 @@ if(-f $inputFile){
 } else {
 	die("Failed to find the input file.");
 }
-if(-d $outputPath){
+if(-f $outputPath){
 	display("Existence of output path... CHECKED.\n");
 } else {
-	die("Failed to find the output path.");
+	die("Failed to find the input path.");
 }
 if(-f $hadoopJar){
 	display("Existence of hadoop jar... CHECKED.\n");
