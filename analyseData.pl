@@ -69,6 +69,10 @@ if($? != 0){
 }
 display("Successfully copied $inputFile to $inputHDFSDir on HDFS.");
 
+# Start resource monitor to monitor resources across cluster
+system('mv stat/ stat.old');
+system('./Resmon.pl -start-all');
+my $start = time;
 
 # Run the hadoop jar file.
 display('Running Hadoop MapReduce.');
@@ -79,6 +83,10 @@ if($? != 0){
 	die('Failed to execute previous command. Something is wrong.');
 }
 display("Successfully completed MapReduce.");
+
+# Stop the resource monitor
+my $duration = time - $start;
+system('./Resmon.pl -stop-all');
 
 # Retrieve output from HDFS.
 display('Retrieving output from HDFS.');
@@ -100,7 +108,7 @@ if($? != 0){
 }
 display("Successfully cleaned up.");
 
-
+display("Total execution time: $duration seconds.");
 display("All done!");
 
 

@@ -24,8 +24,14 @@ public class WordCounter {
         private final static IntWritable one = new IntWritable();
         private Text word = new Text();
 
+        public WordCountMapper(){
+            // Start collecting data...
+            
+        }
+        
         @Override
         protected void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+            
             String[] words = value.toString().split(" ");
             
             for(String str : words){
