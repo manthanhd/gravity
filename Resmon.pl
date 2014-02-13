@@ -20,14 +20,21 @@ my $stopFileName = '/scripts/resmon/stop';
 my $memStatFile = '/scripts/resmon/mem.stat';
 my $start_all;
 my $stop_all;
+my $statCollectionDirectory;
 
 GetOptions (
 				"start-all"  => \$start_all,
 				"stop-all"  => \$stop_all,
+				"statCollectionDirectory=s" => \$statCollectionDirectory
 			);
 if($start_all){
 	startAll();
 } elsif($stop_all){
+	if(!$statCollectionDirectory){
+		die("-statCollectionDirectory must be provided with -stop-all flag.");
+	} elsif (length($statCollectionDirectory) < 3) {
+		die("Length of specified directory for stat collection is illegal. It must be 3 or more characters.");
+	}
 	stopAll();
 } else {
 	display('Please supply either -start-all or -stop-all to start or stop bots on machines.');
@@ -45,6 +52,21 @@ sub stopAll(){
 	foreach $machine (@machines){
 		stopBot($machine);
 	}
+	
+	# Clear the directory for incoming files...
+	if(-d $statCollectionDirectory){
+		if(-d "$statCollectionDirectory.old"){
+			system("rm -rf $statCollectionDirectory.old");
+		}
+		system("mv $statCollectionDirectory $statCollectionDirectory.old");
+	}
+	mkdir($statCollectionDirectory);
+	
+	# Now fetch data from those machines
+	foreach $machine (@machines){
+		collectStats($machine);
+	}
+	
 }
 
 sub remoteExec {
@@ -92,16 +114,19 @@ sub stopBot{
 	$rc = remoteExec($defaultUser, $machine, $command);
 	if($rc == 0){
 		display('Bot on ' . $machine . ' has been asked to stop.');
-		sleep(2);
-		mkdir('stats');
-		$rc = scpGet('hduser', $machine, $memStatFile, "stats/$machine.mem.stat");
-		if($rc == 0){
-			display("Successfully fetched statistics from $machine.");
-		} else {
-			display("Failed to fetch file from $machine");
-		}
+		# sleep(2);
 	} else {
 		display('Failed to start bot on ' . $machine);
+	}
+}
+
+sub collectStats {
+	my $machine = shift;
+	$rc = scpGet('hduser', $machine, $memStatFile, "$statCollectionDirectory/$machine.mem.stat");
+	if($rc == 0){
+		display("Successfully fetched statistics from $machine.");
+	} else {
+		display("Failed to fetch file from $machine");
 	}
 }
 

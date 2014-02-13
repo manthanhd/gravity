@@ -86,7 +86,7 @@ display("Successfully completed MapReduce.");
 
 # Stop the resource monitor
 my $duration = time - $start;
-system('./Resmon.pl -stop-all');
+system('./Resmon.pl -stop-all -statCollectionDirectory stats');
 
 # Retrieve output from HDFS.
 display('Retrieving output from HDFS.');

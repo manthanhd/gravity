@@ -6,6 +6,8 @@
 # This is the bot script.
 
 # Prepare. First of all, cleanup.
+use POSIX qw/strftime/;
+
 my $dir = '/scripts/resmon';
 my $memFile = $dir . '/mem.stat';
 my $stop = undef;
@@ -35,11 +37,13 @@ while(!$stop){
 	if($MemTotal =~ /^*(\d+)/){
 			$MemTotal = $1;
 	}
-
+	my $MemUse = $MemTotal - $MemFree;
+	
 	# Time to write data in a file in CSV format.
 
 	open (MEMSTAT, ">>$memFile");
-	print MEMSTAT $MemTotal . ',' . $MemFree . "\n";
+	my $timestamp = strftime('%d-%m-%Y %H:%M:%S',localtime);
+	print MEMSTAT $timestamp . ',' . $MemTotal . ',' . $MemUse . "\n";
 	close(MEMSTAT);
 	sleep(1);
 }
