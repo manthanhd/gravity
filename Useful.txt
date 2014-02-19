@@ -1,0 +1,24 @@
+This file is a property of Manthan H Dave.
+It contains useful information - DOH!
+
+Formatting namenode:
+hadoop dfs namenode -format
+
+Running TwitterWordCount7_51.jar:
+./hadoop jar /home/hduser/TwitterWordCount7_51.jar TweetWordCount /user/hduser/data /user/hduser/out
+	TweetWordCount is the name of the class containing "public static void main" method
+	/user/hduser/out directory on HDFS should not exist prior to execution.
+	/user/hduser/data should contain a file containing tweets in json format. One sample is present at /home/hduser/newtweets-2h26m56s.txt
+
+Running mapper.pl and reducer.pl using /home/hduser/analyseData.pl script:
+./analyseData.pl -dataset /home/hduser/gutenberg/collection.txt -outputDir /home/hduser/gutenberg/analysis -mode stream -mapper /home/hduser/hadoop-sandbox/perl/mapper.pl -reducer /home/hduser/hadoop-sandbox/perl/reducer.pl
+	Make sure that both mapper and reducer perl scripts exist.
+	Current working directory is /home/hduser
+	Java version usually doesn't interfere with the running process unless the version of java is inconsistent across nodes.
+  In case of problems, remove /user/hadoop directory from HDFS.
+
+Running mapreduce from jar file using /home/hduser/analyseData.pl script:
+./analyseData.pl -dataset /home/hduser/newtweets-2h26m56s.txt -mode native -hadoopJar /home/hduser/TwitterWordCount7_51.jar -hadoopClass TweetWordCount -outputDir /home/hduser/analysisOut
+	Make sure that the directory specified in -outputDir does not exist.
+	Current working directory has to be /home/hduser
+  In case of problems, remove /user/hadoop directory from HDFS.
