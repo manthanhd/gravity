@@ -160,15 +160,17 @@ if(-d "$outputPath.old"){
 	system("rm -rf $outputPath.old");
 }
 # Create a new backup.
-system("mv $outputPath $outputPath.old");
+if(-d $outputPath){
+	system("mv $outputPath $outputPath.old");
+}
 mkdir($outputPath);
-display("Executing:\n $command \n");
 
 # Pull the files out of hdfs.
 $command = "$hadoop dfs -copyToLocal $outputHDFSDir $outputPath";
+display("Executing:\n $command \n");
 system($command);
 if($? != 0){
-	die('Failed to execute previous command. Something is wrong.');
+	die('Failed to execute previous command. Something is wrong. OutputPath is ' . $outputPath);
 }
 display("Successfully retrieved output to $outputPath.");
 
@@ -182,15 +184,16 @@ if($? != 0){
 }
 display("Successfully cleaned up.");
 
-# Stop Hadoop
-display('Stopping hadoop...');
-$command = $ENV{'HADOOP_HOME'} . '/bin/stop-all.sh';
-$rc = system($command);
-if($rc != 0){
-	die('Failed to stop hadoop.');
+if($initHadoop){
+	# Stop Hadoop
+	display('Stopping hadoop...');
+	$command = $ENV{'HADOOP_HOME'} . '/bin/stop-all.sh';
+	$rc = system($command);
+	if($rc != 0){
+		die('Failed to stop hadoop.');
+	}
+	display('Successfully stopped hadoop.');
 }
-display('Successfully stopped hadoop.');
-
 display("Total execution time: $duration seconds.");
 display("All done!");
 
