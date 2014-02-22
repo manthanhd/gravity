@@ -1,0 +1,68 @@
+Existence of input file... CHECKED.
+Failed to find the output path. Creating it.
+Existence of hadoop mapper file... CHECKED.
+Existence of hadoop reducer file... CHECKED.
+Hadoop executable is located in /opt/hadoop-1.2.1/bin/hadoop
+Creating working directory in HDFS.
+Executing:
+ /opt/hadoop-1.2.1/bin/hadoop dfs -mkdir /user/hadoop/data 
+
+Warning: $HADOOP_HOME is deprecated.
+
+Created directory /user/hadoop/data in HDFS.
+Copying the input dataset to HDFS.
+Executing:
+ /opt/hadoop-1.2.1/bin/hadoop dfs -copyFromLocal /var/www/Gravity/apps/wc/user_upload/-1393037520-newtweets-2h26m56s.txt /user/hadoop/data 
+
+Warning: $HADOOP_HOME is deprecated.
+
+Successfully copied /var/www/Gravity/apps/wc/user_upload/-1393037520-newtweets-2h26m56s.txt to /user/hadoop/data on HDFS.
+mv: cannot stat `stat/': No such file or directory
+Running Hadoop MapReduce.
+Executing:
+ /opt/hadoop-1.2.1/bin/hadoop jar /opt/hadoop-1.2.1/contrib/streaming/hadoop-streaming-1.2.1.jar -mapper /home/hduser/hadoop-sandbox/perl/mapper.pl -reducer /home/hduser/hadoop-sandbox/perl/reducer.pl -input /user/hadoop/data -output /user/hadoop/out 
+
+Warning: $HADOOP_HOME is deprecated.
+
+packageJobJar: [/tmp/hadoop-hduser/hadoop-unjar2419236829904466836/] [] /tmp/streamjob6635784311999258672.jar tmpDir=null
+14/02/22 14:10:37 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+14/02/22 14:10:37 WARN snappy.LoadSnappy: Snappy native library not loaded
+14/02/22 14:10:37 INFO mapred.FileInputFormat: Total input paths to process : 1
+14/02/22 14:10:38 INFO streaming.StreamJob: getLocalDirs(): [/home/hduser/hdfs]
+14/02/22 14:10:38 INFO streaming.StreamJob: Running job: job_201402221359_0002
+14/02/22 14:10:38 INFO streaming.StreamJob: To kill this job, run:
+14/02/22 14:10:38 INFO streaming.StreamJob: /opt/hadoop-1.2.1/libexec/../bin/hadoop job  -Dmapred.job.tracker=heisenberg:54311 -kill job_201402221359_0002
+14/02/22 14:10:38 INFO streaming.StreamJob: Tracking URL: http://heisenberg:50030/jobdetails.jsp?jobid=job_201402221359_0002
+14/02/22 14:10:39 INFO streaming.StreamJob:  map 0%  reduce 0%
+14/02/22 14:10:52 INFO streaming.StreamJob:  map 30%  reduce 0%
+14/02/22 14:10:55 INFO streaming.StreamJob:  map 50%  reduce 0%
+14/02/22 14:11:10 INFO streaming.StreamJob:  map 70%  reduce 17%
+14/02/22 14:11:13 INFO streaming.StreamJob:  map 88%  reduce 17%
+14/02/22 14:11:16 INFO streaming.StreamJob:  map 100%  reduce 17%
+14/02/22 14:11:26 INFO streaming.StreamJob:  map 100%  reduce 69%
+14/02/22 14:11:29 INFO streaming.StreamJob:  map 100%  reduce 74%
+14/02/22 14:11:32 INFO streaming.StreamJob:  map 100%  reduce 84%
+14/02/22 14:11:35 INFO streaming.StreamJob:  map 100%  reduce 90%
+14/02/22 14:11:38 INFO streaming.StreamJob:  map 100%  reduce 96%
+14/02/22 14:11:41 INFO streaming.StreamJob:  map 100%  reduce 100%
+14/02/22 14:11:45 INFO streaming.StreamJob: Job complete: job_201402221359_0002
+14/02/22 14:11:45 INFO streaming.StreamJob: Output: /user/hadoop/out
+Successfully completed MapReduce.
+Retrieving output from HDFS.
+Executing:
+ /opt/hadoop-1.2.1/bin/hadoop dfs -copyToLocal /user/hadoop/out /var/www/Gravity/apps/wc/out/530810d022e53 
+
+Warning: $HADOOP_HOME is deprecated.
+
+Successfully retrieved output to /var/www/Gravity/apps/wc/out/530810d022e53.
+Cleaning up...
+Executing:
+ /opt/hadoop-1.2.1/bin/hadoop dfs -rmr /user/hadoop/data /user/hadoop/out 
+
+Warning: $HADOOP_HOME is deprecated.
+
+Deleted hdfs://heisenberg:54310/user/hadoop/data
+Deleted hdfs://heisenberg:54310/user/hadoop/out
+Successfully cleaned up.
+Total execution time: 70 seconds.
+All done!
