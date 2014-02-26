@@ -20,6 +20,19 @@
 			$this->completed_on = $completed_on;
 		}
 
+		public static function updateProgress($tokenid, $progress, $message){
+			$conn = new MySQLConnection();
+			$conn->connect();
+			$query = "UPDATE webdb.Request SET status='$message', progress_percent=$progress WHERE tokenid='$tokenid';";
+			$result = mysql_query($query) or die(mysql_error());
+			$response = FALSE;
+			if($result){
+				$response = TRUE;
+			}
+			$conn->disconnect();
+			return $response;
+		}
+
 		public function start(){
 			$this->status = "started";
 			$this->progress = 50;
@@ -69,6 +82,27 @@
 			$request->fill($row['tokenid'], $row['app_name'], $row['input_file'], $row['status'], $row['progress_percent'], $row['output_file'], $row['output_file_hdfs'], $row['expired'], $row['requested_on'], $row['started_on'], $row['completed_on']);
 			$conn->disconnect();
 			return $request;
+		}
+
+		public static function cleanupRequests($dayCount){
+			if(!$dayCount){
+				return FALSE;
+			} elseif (!is_int($dayCount)){
+				return FALSE;
+			}
+			$conn = new MySQLConnection();
+			$conn->connect();
+			$response = FALSE;
+			$query = "INSERT INTO webdb.Request_Archived SELECT * FROM webdb.Request WHERE completed_on <= DATE_SUB(CURDATE(), INTERVAL $dayCount DAY) AND expired = 0;";
+			$result = mysql_query($query);
+			if($result){
+				$query = "DELETE FROM webdb.Request WHERE completed_on <= DATE_SUB(CURDATE(), INTERVAL $dayCount DAY) AND expired = 0;";
+				$request = mysql_query($query);
+				$response = TRUE;
+			}
+			$conn->disconnect();
+			return $response;
+			
 		}
 
 		public static function getNew(){

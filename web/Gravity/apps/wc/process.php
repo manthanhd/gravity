@@ -27,6 +27,26 @@
 							if($('#progressDiv').hasClass('progress-striped') == true){
 								$('#progressDiv').removeClass('progress-striped active');
 							}
+						} else if(d.status == "initHadoop"){
+							$('#statusLabel').text("Status: Initiated Cluster");
+              if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+						} else if(d.status == "hdfs"){
+							$('#statusLabel').text("Status: Importing output to HDFS");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+						} else if(d.status == "mapreduce"){
+							$('#statusLabel').text("Status: Running MapReduce on cluster");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+						} else if(d.status == "retrieve"){
+							$('#statusLabel').text("Status: Retrieving output");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
 						}
 
 						if(d.status != "submitted"){
@@ -54,7 +74,7 @@
 							// console.log(d.status);
 						// });
 						callWS();
-					}, 1000);
+					}, 500);
 				}
 			});
 			
