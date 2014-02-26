@@ -59,6 +59,18 @@
 			}
 		}
 
+		public static function get($tokenid){
+			$conn = new MySQLConnection();
+			$conn->connect();
+			$query = "SELECT * FROM webdb.Request WHERE tokenid='$tokenid';";
+			$res = mysql_query($query) or die(mysql_error());
+			$row = mysql_fetch_array($res, MYSQL_ASSOC) or die(mysql_error());
+			$request = new WCRequest();
+			$request->fill($row['tokenid'], $row['app_name'], $row['input_file'], $row['status'], $row['progress_percent'], $row['output_file'], $row['output_file_hdfs'], $row['expired'], $row['requested_on'], $row['started_on'], $row['completed_on']);
+			$conn->disconnect();
+			return $request;
+		}
+
 		public static function getNew(){
 			$conn = new MySQLConnection();
 			$conn->connect();

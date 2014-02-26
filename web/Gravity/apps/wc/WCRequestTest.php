@@ -8,7 +8,6 @@
 			echo "\nStarting...";
 			sleep(5);
 			$request->start();
-			sleep(30);
 			$request->complete();
 		}
 	}

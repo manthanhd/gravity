@@ -54,7 +54,7 @@
 							// console.log(d.status);
 						// });
 						callWS();
-					}, 1000);
+					}, 10000);
 				}
 			});
 			

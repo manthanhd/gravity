@@ -1,0 +1,7 @@
+1. Need to clean up the framework for making apps. 
+2. Add fields to Request table (exec_option_id)
+3. Add table exec_option with fields (exec_option_id, exec_mode, exec_stream_files, exec_jar_file, exec_jar_main, jdk_id)
+4. Add table jdk with fields (jdk_id, jdk_name, jdk_home_path, jdk_version, jdk_update)
+5. Cleanup upload script with specific functions like uploadText, uploadBinary.
+6. Cleanup WCRequest.php. Rename it to be Request.php.
+7. Generalise the request_handler class. Move it to common.

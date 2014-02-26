@@ -1,5 +1,5 @@
 <div class="row">
 	<div class="jumbotron">
-		<h1>Gravity<small>By Manthan Dave</small></h1>	
+		<h1><a href='/Gravity/'>Gravity</a><small>By Manthan Dave</small></h1>	
 	</div>
 </div>
