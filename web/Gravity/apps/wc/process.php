@@ -3,13 +3,14 @@
 		<title>Word Counter</title>
 		<?php require "helpers/scripts.php"; error_reporting(E_ALL);?>
 		<script type="text/javascript">
+			window.status = "";
 			function callWS(){
 				$.post("progressService.php?op=getStatus", {tokenid:value}, function(data, status){
 					//alert("Data: " + data + "\nStatus: " + status);
 					var d = JSON.parse(data);
 					//console.log(d.status);
 					if(d.status){
-						if(d.status == "submitted"){
+						/*if(d.status == "submitted"){
 							$('#statusLabel').text("Status: Submitted");
 							if($('#progressDiv').hasClass('progress-striped') == false){
 								$('#progressDiv').addClass('progress-striped active');
@@ -47,12 +48,28 @@
 							if($('#progressDiv').hasClass('progress-striped') == true){
 								$('#progressDiv').removeClass('progress-striped active');
 							}
-						}
+					}*/
+						if(d.status != window.status){
+							$('#statusLabel').text("Status: " + d.status_message);
 
-						if(d.status != "submitted"){
-							$('#processProgress').css("width", d.progress_percent + "%");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+
+							if(d.status == "submitted"){
+								$('#progressDiv').addClass('progress-striped active');
+								$('#processProgress').css("width", 100 + "%");
+							} else if(d.status == "completed") {
+								$('#viewResultsLink').css('visibility','visible');
+								$('#processHeading').css('visibility','hidden');
+								$('#processProgress').css("width", 100 + "%");
+							} else {	
+								$('#processProgress').css("width", d.progress_percent + "%");
+							}
+
+							console.log(d.status);
+							status = d.status;
 						}
-						console.log(d.status);
 					}
 				});
 			}
@@ -64,6 +81,7 @@
 						alert(d.status);
 					});
 				});*/
+				window.status = "";
 				value = $('#tokenid').val();
 				if($('#progressDiv').css("visibility") != "hidden"){
 					callWS();
@@ -128,6 +146,9 @@
 			<form id="dataform" action="progressService.php?op=getStatus" method="post" style="visibility: hidden;">
 				<input type="hidden" name="tokenid" id="tokenid" value="<?php echo $tokenid;?>"/>
 			</form>
+			<div class="text-center">
+				<h4>Please bookmark this page or note down tokenid <?php echo $tokenid; ?> for future reference.</h4>
+			</div>
 		</div>
 	</body>
 </html>

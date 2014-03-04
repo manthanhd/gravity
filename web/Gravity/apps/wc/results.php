@@ -81,7 +81,6 @@
 					-->
 				</form>
 				<?php
-					
 					if($invalidToken == FALSE && $expired == FALSE){
 						echo "<a href='getLog.php?tokenid=" . $_GET['tokenid'] . "'>View log</a>";
 					}

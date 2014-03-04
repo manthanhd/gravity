@@ -3,13 +3,14 @@
 		<title>Word Counter</title>
 		<?php require "helpers/scripts.php"; error_reporting(E_ALL);?>
 		<script type="text/javascript">
+			window.status = "";
 			function callWS(){
 				$.post("progressService.php?op=getStatus", {tokenid:value}, function(data, status){
 					//alert("Data: " + data + "\nStatus: " + status);
 					var d = JSON.parse(data);
 					//console.log(d.status);
 					if(d.status){
-						if(d.status == "submitted"){
+						/*if(d.status == "submitted"){
 							$('#statusLabel').text("Status: Submitted");
 							if($('#progressDiv').hasClass('progress-striped') == false){
 								$('#progressDiv').addClass('progress-striped active');
@@ -27,12 +28,48 @@
 							if($('#progressDiv').hasClass('progress-striped') == true){
 								$('#progressDiv').removeClass('progress-striped active');
 							}
-						}
+						} else if(d.status == "initHadoop"){
+							$('#statusLabel').text("Status: Initiated Cluster");
+              if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+						} else if(d.status == "hdfs"){
+							$('#statusLabel').text("Status: Importing output to HDFS");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+						} else if(d.status == "mapreduce"){
+							$('#statusLabel').text("Status: Running MapReduce on cluster");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+						} else if(d.status == "retrieve"){
+							$('#statusLabel').text("Status: Retrieving output");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+					}*/
+						if(d.status != window.status){
+							$('#statusLabel').text("Status: " + d.status_message);
 
-						if(d.status != "submitted"){
-							$('#processProgress').css("width", d.progress_percent + "%");
+							if($('#progressDiv').hasClass('progress-striped') == true){
+								$('#progressDiv').removeClass('progress-striped active');
+							}
+
+							if(d.status == "submitted"){
+								$('#progressDiv').addClass('progress-striped active');
+								$('#processProgress').css("width", 100 + "%");
+							} else if(d.status == "completed") {
+								$('#viewResultsLink').css('visibility','visible');
+								$('#processHeading').css('visibility','hidden');
+								$('#processProgress').css("width", 100 + "%");
+							} else {	
+								$('#processProgress').css("width", d.progress_percent + "%");
+							}
+
+							console.log(d.status);
+							status = d.status;
 						}
-						console.log(d.status);
 					}
 				});
 			}
@@ -44,6 +81,7 @@
 						alert(d.status);
 					});
 				});*/
+				window.status = "";
 				value = $('#tokenid').val();
 				if($('#progressDiv').css("visibility") != "hidden"){
 					callWS();
@@ -54,7 +92,7 @@
 							// console.log(d.status);
 						// });
 						callWS();
-					}, 10000);
+					}, 500);
 				}
 			});
 			
@@ -66,24 +104,38 @@
 			require "helpers/header.php";
 			require "helpers/MySQLConnection.php";
 			require_once "helpers/WCRequest.php";
-			require "helpers/txtUpload.php";
+			require "helpers/UploadHandler.php";
 		?>
 		<div class="row">
 			<p>
 				<?php
-					$tokenid = NULL;
+					$tokenid = uniqid();
 					$invalidToken = FALSE;
 					if(!empty($_FILES)){
-						$filename = upload("textFileUpload", $_FILES);
-						echo "Your input file has been uploaded.";
-						$tokenid=uniqid();
-						$conn = new MySQLConnection();
-						$conn->connect();
-						$date = date('Y-m-d H:i:s');
-						$query = "INSERT INTO webdb.Request (tokenid, app_name, input_file, status, progress_percent, expired, " .
-							"requested_on) VALUES ('$tokenid', 'wc', '$filename', 'submitted', 10, 0, '$date')";
-						mysql_query($query) or die(mysql_error());
-						$conn->disconnect();
+						$jarFilename = uploadJar("jarFileUpload", $_FILES, $tokenid, "user_upload");
+						# echo ($jarFilename) ? "Your jar file has been uploaded.<br/>" : "";
+						$filename = upload("textFileUpload", $_FILES, $tokenid, "user_upload");
+						# echo ($filename) ? "Your text file has been uploaded.<br/>" : "";
+						$mainClass = $_POST['mainClassText'];
+						$jdkRadio = $_POST['jdkRadio'];
+						$upload_success = null;
+						if($jarFilename && $filename){
+							$upload_success = TRUE;
+						}
+						# $tokenid=uniqid();
+						if($upload_success){
+							$conn = new MySQLConnection();
+							$conn->connect();
+							$date = date('Y-m-d H:i:s');
+							$query = "INSERT INTO webdb.Request (tokenid, app_name, input_file, status, progress_percent, expired, " .
+								"requested_on) VALUES ('$tokenid', 'custom', '$filename', 'submitted', 10, 0, '$date')";
+							mysql_query($query) or die(mysql_error());
+							$query = "INSERT INTO webdb.App_Custom (tokenid, jar_file, main_class, jre_version) VALUES ('$tokenid', " . 
+								"'$jarFilename', '$mainClass', '$jdkRadio')";
+							mysql_query($query) or die(mysql_error());
+							$conn->disconnect();
+							header("Location:process.php?tokenid=$tokenid");
+						}
 					} else if(isset($_GET['tokenid'])){
 						$tokenid = $_GET['tokenid'];
 						if(WCRequest::isTokenValid($tokenid) == FALSE){
@@ -91,7 +143,7 @@
 							$invalidToken = TRUE;
 						}
 					} else {
-						header("Location: /Gravity/apps/wc/index.php");
+						header("Location: /Gravity/apps/custom/index.php");
 					}
 				?>
 			</p>
@@ -108,6 +160,9 @@
 			<form id="dataform" action="progressService.php?op=getStatus" method="post" style="visibility: hidden;">
 				<input type="hidden" name="tokenid" id="tokenid" value="<?php echo $tokenid;?>"/>
 			</form>
+			<div class="text-center">
+				<h4>Please bookmark this page or note down tokenid <?php echo $tokenid; ?> for future reference.</h4>
+			</div>
 		</div>
 	</body>
 </html>

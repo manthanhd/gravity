@@ -1,6 +1,15 @@
 <?php
 	error_reporting(E_ALL);
 	require "helpers/MySQLConnection.php";
+	$statusMessages = array(
+			'submitted'		=>		'Submitted',
+			'started'			=>		'Started',
+			'initHadoop'	=>		'Initiating Hadoop Cluster...',
+			'hdfs'				=>		'Importing data into HDFS',
+			'mapreduce'		=>		'Running MapReduce...',
+			'retrieve'		=>		'Retrieving output from HDFS...',
+			'completed'		=>		'Complete'
+	);
 	if(!empty($_POST)){
 		if(!isset($_POST['tokenid'])){
 			die("TokenID not set.");
@@ -18,7 +27,7 @@
 				if(strtolower($_GET['op']) == 'getstatus'){
 					$status = $lines['status'];
 					$pp = $lines['progress_percent'];
-					echo json_encode(array('status' => $status, 'progress_percent' => $pp));
+					echo json_encode(array('status' => $status, 'progress_percent' => $pp, 'status_message' => $statusMessages[$status]));
 					//echo json_encode(array('status'=>$status));
 				} else if(strtolower($_GET['op']) == 'getresult'){
 					$status = $lines['status'];

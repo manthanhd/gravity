@@ -109,7 +109,7 @@
 			$conn = new MySQLConnection();
 			$conn->connect();
 			$requests = array();
-			$query = "SELECT * FROM webdb.Request WHERE completed_on IS NULL;";
+			$query = "SELECT * FROM webdb.Request WHERE completed_on IS NULL AND app_name='wc';";
 			$result = mysql_query($query);
 
 			while($row = mysql_fetch_array($result, MYSQL_ASSOC)){
