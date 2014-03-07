@@ -11,6 +11,9 @@ my $mapper = '';
 my $reducer = '';
 my $clean = undef;
 my $initHadoop = undef;
+my $package = undef;
+my $tokenid = undef;
+my $statDir = undef;
 GetOptions (  "dataset=s" 				=> \$inputFile,
               "outputDir=s"  		  => \$outputPath,
               "mode=s"  					=> \$mode,
@@ -20,7 +23,10 @@ GetOptions (  "dataset=s" 				=> \$inputFile,
               "mapper=s" 					=> \$mapper,
               "reducer=s" 				=> \$reducer,
 						  "clean"							=> \$clean,
-						  "initHadoop"				=> \$initHadoop
+						  "initHadoop"				=> \$initHadoop,
+							"package"						=> \$package,
+							"tokenid=s"					=> \$tokenid,
+							"statdir=s"					=> \$statDir
 		    	);
 if($displayHelp){
 	display('-dataset	<Path to the file containing data to be processed>');
@@ -30,7 +36,6 @@ if($displayHelp){
 	display('-help 		<Display this help message>');
 	die("Help displayed.");
 }
-
 if(-f $inputFile){
 	display("Existence of input file... CHECKED.");
 } else {
@@ -60,6 +65,10 @@ if($mode eq 'native'){
 		die("Failed to find reducer file.");
 	}
 }
+if($tokenid){
+	report($tokenid, 20, "initHadoop");
+}
+
 my $hadoop = $ENV{'HADOOP_HOME'} . '/bin/hadoop';
 my $command = "";	# Used by subsequent code.
 my $inputHDFSDir = '/user/hadoop/data';
@@ -108,6 +117,10 @@ if($initHadoop){
 	display('Patiently waiting for 30 seconds for hadoop to settle itself.');
 	sleep(30);
 }
+
+if($tokenid){
+	report($tokenid, 30, "hdfs");
+}
 # Create working directory in hdfs first
 display('Creating working directory in HDFS.');
 $command = "$hadoop dfs -mkdir $inputHDFSDir";
@@ -130,9 +143,22 @@ if($? != 0){
 display("Successfully copied $inputFile to $inputHDFSDir on HDFS.");
 
 # Start resource monitor to monitor resources across cluster
-system('mv stat/ stat.old');
+if($statDir == undef){
+	system('mv stat/ stat.old');
+} else {
+	if(-d $statDir){
+		system("mv $statDir $statDir.old");
+		if($? != 0){
+			die("Failed to execute previous command. Failed to move $statDir despite it\'s existence");
+		}
+	}
+}
 system('./Resmon.pl -start-all');
 my $start = time;
+
+if($tokenid){
+	report($tokenid, 50, "mapreduce");
+}
 
 # Run the hadoop jar file.
 display('Running Hadoop MapReduce.');
@@ -148,10 +174,19 @@ if($? != 0){
 	die('Failed to execute previous command. Something is wrong.');
 }
 display("Successfully completed MapReduce.");
+if($tokenid){
+	report($tokenid, 70, "retrieve");
+}
 
 # Stop the resource monitor
 my $duration = time - $start;
-system('./Resmon.pl -stop-all -statCollectionDirectory stats');
+# display("Value of statdir is $statDir.");
+if($statDir != undef){
+	display("Asking resource monitor to stop and retrieve all stats to $statDir directory.");
+	system('./Resmon.pl -stop-all -statCollectionDirectory ' . $statDir) or die("Failed to get stats");
+} else {
+	system('./Resmon.pl -stop-all -statCollectionDirectory ' . 'stats') or die("Failed to get stats to default dir.");
+}
 
 # Retrieve output from HDFS.
 display('Retrieving output from HDFS.');
@@ -173,6 +208,24 @@ if($? != 0){
 	die('Failed to execute previous command. Something is wrong. OutputPath is ' . $outputPath);
 }
 display("Successfully retrieved output to $outputPath.");
+
+# Now that we have output copied out to $outputPath, we can package it is package flag is set.
+if($package){
+	$command = "tar -czf $outputPath.tar.gz $outputPath";
+	display("Executing:\n $command \n");
+	system($command);
+	if($? != 0){
+		die("Failed to package output.");
+	} 
+	display("Successfully packaged output as $outputPath.tar.gz.\nRemoving output directory...");
+	$command = "rm -rf $outputPath";
+	display("Executing:\n $command \n");
+	system($command);
+	if($? != 0){
+		die("Failed to remove directory after packaging.");
+	}
+	display("Successfully removed directory $outputPath after packaging.");
+}
 
 # Cleaning up...
 display('Cleaning up...');
@@ -212,5 +265,14 @@ sub remoteExec {
 	
 	display('Will execute: ' . $remoteCommand . " on machine $machine.");
 	my $rc = system($remoteCommand);
+	return $rc;
+}
+
+sub report {
+	my $tokenid = shift;
+	my $progress = shift;
+	my $message = shift;
+	my $command = "php /home/hduser/reportProgress.php -t $tokenid -p $progress -m \"$message\";";
+	my $rc = system($command);
 	return $rc;
 }

@@ -60,7 +60,7 @@ sub display {
 }
 
 sub analyseUse {
-	my $txt = `top -n 1`;
+	my $txt = `top -b -n 1`;
 	$regex = '.*?Tasks.*?(\\d+)\\s.*?total.*?(\\d+)\\s.*?running.*?(\\d+)\\s.*?sleeping.*?Cpu.*?([+-]?\\d*\\.\\d+)(?![-+0-9\\.]).*?Mem.*?(\\d+)k.*?(\\d+)k.*?';
 	my ($tasks, $running, $sleeping, $cpu, $memTotal, $memUsed) = $txt =~ m/$regex/is;
 	# print "\nTasks:$tasks, Running $running, Sleeping $sleeping, Cpu: $cpu, memTotal:$memTotal, memFree:$memUsed";

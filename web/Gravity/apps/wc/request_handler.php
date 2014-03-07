@@ -9,6 +9,7 @@ class WCRequestHandler{
 		$mapper = "/home/hduser/hadoop-sandbox/perl/mapper.pl";
 		$reducer = "/home/hduser/hadoop-sandbox/perl/reducer.pl";
 		WCRequestHandler::llog($mode, "Looking for new requests...");
+		print("Current working directory is " . getcwd());	
 		$requests = WCRequest::getNew();
 		foreach ($requests as $request){
 			$tokenid = $request->tokenid;
@@ -17,7 +18,8 @@ class WCRequestHandler{
 			$input_file = getcwd() . '/' . $request->input_file;
 			$logfile = getcwd() . '/logs/' . $tokenid . '.log';
 			$outputDir = getcwd() . "/out/$tokenid";
-			$command = "/home/hduser/analyseData.pl -dataset $input_file -outputDir $outputDir -mode stream -mapper $mapper -reducer $reducer -package -tokenid $tokenid > $logfile 2>&1";
+			$statDir = getcwd() . "/out/$tokenid.stats";
+			$command = "/home/hduser/analyseData.pl -dataset \"$input_file\" -outputDir \"$outputDir\" -mode stream -mapper \"$mapper\" -reducer \"$reducer\" -package -tokenid $tokenid -statdir \"$statDir\" > $logfile 2>&1";
 			$request->start();
 			WCRequestHandler::llog($mode, "Started processing $tokenid");
 			$rc = system($command);

@@ -9,9 +9,9 @@ use Getopt::Long;
 
 my @machines = (
 					'heisenberg',
-					'titanium.dnsdynamic.net',
-					'tungsten.dnsdynamic.net',
-					'silicon.dnsdynamic.net'
+					'titanium',
+					'tungsten',
+					'silicon'
 				);
 my @botMachines = ();
 my $defaultUser = 'hduser';
@@ -60,7 +60,7 @@ sub stopAll(){
 		}
 		system("mv $statCollectionDirectory $statCollectionDirectory.old");
 	}
-	mkdir($statCollectionDirectory);
+	mkdir($statCollectionDirectory) or die("Failed to make stat collection directory");
 	
 	# Now fetch data from those machines
 	foreach $machine (@machines){
