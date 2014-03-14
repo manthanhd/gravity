@@ -18,8 +18,8 @@ class WCRequestHandler{
 			$input_file = getcwd() . '/' . $request->input_file;
 			$logfile = getcwd() . '/logs/' . $tokenid . '.log';
 			$outputDir = getcwd() . "/out/$tokenid";
-			$statDir = getcwd() . "/out/$tokenid.stats";
-			$command = "/home/hduser/analyseData.pl -dataset \"$input_file\" -outputDir \"$outputDir\" -mode stream -mapper \"$mapper\" -reducer \"$reducer\" -package -tokenid $tokenid -statdir \"$statDir\" > $logfile 2>&1";
+			//$statDir = getcwd() . "/out/$tokenid.stats";
+			$command = "/home/hduser/analyseData.pl -dataset \"$input_file\" -outputDir \"$outputDir\" -mode stream -mapper \"$mapper\" -reducer \"$reducer\" -package -tokenid $tokenid > $logfile 2>&1";
 			$request->start();
 			WCRequestHandler::llog($mode, "Started processing $tokenid");
 			$rc = system($command);

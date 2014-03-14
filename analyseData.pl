@@ -144,7 +144,9 @@ display("Successfully copied $inputFile to $inputHDFSDir on HDFS.");
 
 # Start resource monitor to monitor resources across cluster
 if($statDir == undef){
-	system('mv stat/ stat.old');
+	if(-d "/home/hduser/tmp-store/$tokenid.stats"){
+		system("mv /home/hduser/tmp-store/$tokenid.stats /home/hduser/tmp-store/$tokenid.stats.old");
+	}
 } else {
 	if(-d $statDir){
 		system("mv $statDir $statDir.old");
@@ -153,7 +155,7 @@ if($statDir == undef){
 		}
 	}
 }
-system('./Resmon.pl -start-all');
+system('/home/hduser/Resmon.pl -start-all');
 my $start = time;
 
 if($tokenid){
@@ -183,9 +185,18 @@ my $duration = time - $start;
 # display("Value of statdir is $statDir.");
 if($statDir != undef){
 	display("Asking resource monitor to stop and retrieve all stats to $statDir directory.");
-	system('./Resmon.pl -stop-all -statCollectionDirectory ' . $statDir) or die("Failed to get stats");
+	system('/home/hduser/Resmon.pl -stop-all -statCollectionDirectory ' . $statDir) or die("Failed to get stats");
 } else {
-	system('./Resmon.pl -stop-all -statCollectionDirectory ' . 'stats') or die("Failed to get stats to default dir.");
+	display("Asking resource monitor to stop and retrieve all stats to /home/hduser/tmp-store/$tokenid.stats directory.");
+	system('/home/hduser/Resmon.pl -stop-all -statCollectionDirectory ' . "/home/hduser/tmp-store/$tokenid.stats");
+	if(-d "/home/hduser/tmp-store/$tokenid.stats"){
+		system("mv /home/hduser/tmp-store/$tokenid.stats $outputPath.stats");
+		if($? != 0){
+			die("Failed to move /home/hduser/tmp-store/$tokenid.stats to $outputPath.stats");
+		}
+	} else {
+		die("Resource monitor has failed to retrieve files from bots across the cluster. /home/hduser/tmp-store/$tokenid.stats directory does not exist.");
+	}
 }
 
 # Retrieve output from HDFS.
