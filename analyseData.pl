@@ -14,6 +14,9 @@ my $initHadoop = undef;
 my $package = undef;
 my $tokenid = undef;
 my $statDir = undef;
+my $jdkChangeScript = "/home/hduser/changejdks.pl";
+my $targetJDKPath = undef;
+my $oldJDK = undef;
 GetOptions (  "dataset=s" 				=> \$inputFile,
               "outputDir=s"  		  => \$outputPath,
               "mode=s"  					=> \$mode,
@@ -26,8 +29,10 @@ GetOptions (  "dataset=s" 				=> \$inputFile,
 						  "initHadoop"				=> \$initHadoop,
 							"package"						=> \$package,
 							"tokenid=s"					=> \$tokenid,
-							"statdir=s"					=> \$statDir
+							"statdir=s"					=> \$statDir,
+						  "targetJDK=s"       => \$targetJDKPath
 		    	);
+
 if($displayHelp){
 	display('-dataset	<Path to the file containing data to be processed>');
 	display('-outputDir <Path to the directory where you want the output to be>');
@@ -65,6 +70,29 @@ if($mode eq 'native'){
 		die("Failed to find reducer file.");
 	}
 }
+
+if($targetJDKPath){
+	display("Determining current JDK...");
+	my $com = '/home/hduser/getCurrentJDK.pl';
+	$oldJDK = `$com`;
+	chomp($oldJDK);
+	chomp($targetJDKPath);
+	if($oldJDK ne $targetJDKPath){
+		display("Target JDK has been specified and is not equal to current JDK. Location is $targetJDKPath. Requesting a cluster wide JDK change.");
+		$com = "$jdkChangeScript -all -jdk $targetJDKPath";
+		my $rc = system($com);
+		if($rc == 0){
+			display("Cluster wide JDK change has been made. All JDKs are now $targetJDKPath");
+		} else {
+			die("Failed to make a cluster wide JDK change. Cannot proceed as jar execution might fail.");
+		}
+	} else {
+		display("Target JDK ($targetJDKPath) is same as current JDK ($oldJDK). No change is required.");
+	}
+} else {
+	display("JDK Target has not been set. Will go with the current JDK.");
+}
+
 if($tokenid){
 	report($tokenid, 20, "initHadoop");
 }
@@ -172,10 +200,10 @@ if($mode eq 'native'){
 }
 display("Executing:\n $command \n");
 system($command);
-if($? != 0){
-	die('Failed to execute previous command. Something is wrong.');
-}
-display("Successfully completed MapReduce.");
+ if($? != 0){
+ 	display('Failed to execute previous command. Something is wrong. Please check error log above.');
+ }
+display("Successfully completed MapReduce. Not checking if it failed or not.");
 if($tokenid){
 	report($tokenid, 70, "retrieve");
 }
@@ -247,6 +275,25 @@ if($? != 0){
 	die('Failed to execute previous command. Something is wrong.');
 }
 display("Successfully cleaned up.");
+
+if($targetJDKPath){
+	# If we have reached this point, we probably were successful at setting jdk last time. 
+	# Need to find a way to determine old JDK path and need to reset it back.
+	if($oldJDK && $oldJDK != $targetJDKPath){
+		display("Old JDK was determined earlier and it was changed. Restoring it.");
+		my $com = "$jdkChangeScript -all -jdk $oldJDK";
+		my $rc = system($com);
+		if($rc == 0){
+			display("JDKs have been restored cluster wide.");
+		} else {
+			die("Failed to restore JDK to $oldJDK.");
+		}
+	} else {
+		display("Not touching JDKs.");
+	}
+} else {
+	display("No need to touch any JDKs.");
+}
 
 if($initHadoop){
 	# Stop Hadoop
