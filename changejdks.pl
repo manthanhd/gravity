@@ -2,6 +2,7 @@
 
 use Getopt::Long;
 
+# Slave machines array. We don't need the master as this script will be executed on master.
 my @machines = (
 										'titanium.dnsdynamic.net',
 										'tungsten.dnsdynamic.net',
@@ -12,6 +13,8 @@ my $jdkSymlink = '/opt/jdk';
 my $targetJDK = undef;
 my $clusterwide = undef;
 my $auto = undef;
+my $failFlag = undef;
+
 GetOptions (
 								"jdk=s"		=> \$targetJDK,
 								"all" => \$clusterwide,
@@ -36,9 +39,9 @@ if($targetJDK){
 	my $command = "sudo ln -s $targetJDK $jdkSymlink";
 	my $rc = system($command);
 	if($rc == 0){
-		if(!$auto){display("Symlink created.");}
+		if(!$auto){display("Symlink created.");} else {display("success");}
 	} else {
-		die("Failed to create symlink.");
+		die("fail");
 	}
 }
 
@@ -51,14 +54,18 @@ if($clusterwide){
 		if($output ne "success"){
 			if(!$auto){display("Failed to change jdk on machine $machine. Output was:\n\t$output");}
 			
-			if($auto){print "fail";}
+			if($auto){print "fail"; $failFlag = 1;}
 		} else {
 			if(!$auto){display("$machine changed it's JDK successfully.");}
 			print "success";
 		}
 	}
 }
-
+if(defined($failFlag)){
+	exit 1;
+} else {
+	exit 0;
+}
 
 sub display {
 	my $str = shift;

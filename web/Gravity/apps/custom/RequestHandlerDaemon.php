@@ -1,7 +1,7 @@
 <?php
 	require "request_handler.php";
-	while(true){
+	# while(true){
 		RequestHandler::kickOffPendingJobs('debug');
-		sleep(60);
-	}
+	# 	sleep(60);
+	# }
 ?>

@@ -23,12 +23,16 @@ class RequestHandler{
 			$jarFile = $row['jar_file'];
 			$mainClass = $row['main_class'];
 			$jreVersion = $row['jre_version'];
+			$targetJDKPath = '/opt/jdk-7u51-linux-x64'; # Default JDK (17-03-2014 17:23)
+			if($jreVersion == 'oracle6'){
+				$targetJDKPath = '/opt/jdk1.6.0_45'; # JDK 6
+			}
 			$conn->disconnect();
 			$app_name = $request->app_name;
 			$input_file = getcwd() . '/' . $request->input_file;
 			$logfile = 'logs/' . $tokenid . '.log';
 			$outputDir = "out/$tokenid";
-			$command = "/home/hduser/analyseData.pl -dataset $input_file -outputDir $outputDir -mode native -hadoopJar $jarFile -hadoopClass $mainClass -package -tokenid $tokenid > $logfile 2>&1";
+			$command = "/home/hduser/analyseData.pl -dataset $input_file -outputDir $outputDir -mode native -hadoopJar $jarFile -hadoopClass $mainClass -package -tokenid $tokenid -targetJDK $targetJDKPath > $logfile 2>&1";
 			$request->start();
 			RequestHandler::llog($mode, "Started processing $tokenid");
 			$rc = system($command);
