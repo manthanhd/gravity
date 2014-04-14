@@ -2,6 +2,7 @@
 	require_once "MySQLConnection.php";
 	class WCRequest{
 		public $tokenid, $app_name, $input_file, $status, $progress_percent, $output_file, $output_file_hdfs, $expired, $requested_on, $started_on, $completed_on;
+		public $prepTime, $hdfsInTime, $mapreduceTime, $hdfsOutTime, $cleanupTime;
 	 	public function __construct(){
 
 		}
@@ -20,10 +21,31 @@
 			$this->completed_on = $completed_on;
 		}
 
+		public function fillTime($prepTime, $hdfsInTime, $mapreduceTime, $hdfsOutTime, $cleanupTime){
+			$this->prepTime = $prepTime;
+			$this->hdfsInTime = $hdfsInTime;
+			$this->mapreduceTime = $mapreduceTime;
+			$this->hdfsOutTime = $hdfsOutTime;
+			$this->cleanupTime = $cleanupTime;
+		}
+
 		public static function updateProgress($tokenid, $progress, $message){
 			$conn = new MySQLConnection();
 			$conn->connect();
 			$query = "UPDATE webdb.Request SET status='$message', progress_percent=$progress WHERE tokenid='$tokenid';";
+			$result = mysql_query($query) or die(mysql_error());
+			$response = FALSE;
+			if($result){
+				$response = TRUE;
+			}
+			$conn->disconnect();
+			return $response;
+		}
+
+		public static function updateTime($tokenid, $prepTime, $hdfsInTime, $mapreduceTime, $hdfsOutTime, $cleanupTime){
+			$conn = new MySQLConnection();
+			$conn->connect();
+			$query = "UPDATE webdb.Request SET prepTime='$prepTime', hdfsInTime='$hdfsInTime', mapreduceTime='$mapreduceTime', hdfsOutTime='$hdfsOutTime', cleanupTime='$cleanupTime' WHERE tokenid='$tokenid';";
 			$result = mysql_query($query) or die(mysql_error());
 			$response = FALSE;
 			if($result){
@@ -44,6 +66,19 @@
 			$conn->disconnect();
 		}
 
+		/*public static function updateTime($tokenid, $prepTime, $hdfsInTime, $mapreduceTime, $hdfsOutTime, $cleanupTime){
+			$conn = new MySQLConnection();
+			$conn->connect();
+			$query = "UPDATE webdb.Request SET prepTime='$prepTime', hdfsInTime='$hdfsInTime', mapreduceTime='$mapreduceTime', hdfsOutTime='$hdfsOutTime', cleanupTime='$cleanupTime' WHERE tokenid='$tokenid';";
+			$result = mysql_query($query) or die(mysql_error());
+			$response = FALSE;
+			if($result){
+				$response = TRUE;
+			}
+			$conn->disconnect();
+			return $response;
+		}
+		 */
 		public function complete($output_file){
 			$this->status = "completed";
 			$this->completed_on = date('Y-m-d H:i:s');
@@ -80,6 +115,7 @@
 			$row = mysql_fetch_array($res, MYSQL_ASSOC) or die(mysql_error());
 			$request = new WCRequest();
 			$request->fill($row['tokenid'], $row['app_name'], $row['input_file'], $row['status'], $row['progress_percent'], $row['output_file'], $row['output_file_hdfs'], $row['expired'], $row['requested_on'], $row['started_on'], $row['completed_on']);
+			$request->fillTime($row['prepTime'], $row['hdfsInTime'], $row['mapreduceTime'], $row['hdfsOutTime'], $row['cleanupTime']);
 			$conn->disconnect();
 			return $request;
 		}

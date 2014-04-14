@@ -11,6 +11,9 @@
 			 var hcpuArray = [];
 			 var ttcpuArray = [];
 			 var memArray = [];*/
+		  $(function () {
+					$("[rel='tooltip']").tooltip();
+			});
 			$(document).ready(function(){
 				/*var cpuUsageButton = $('#showCpuUsage');
 				var cpuvisualdiv = $('#cpuvisual');
@@ -265,7 +268,7 @@
 		<?php
 		require "helpers/header.php";
 		require "helpers/WCRequest.php";
-
+		error_reporting(E_ALL);
 		$invalidToken = FALSE;
 		$expired = FALSE;
 		$request = NULL;
@@ -350,6 +353,24 @@
 					</ul>-->
 					<h2>Statistics</h2>
 					
+					<hr/>
+					<h3>Execution times</h3>
+					<hr/>
+						<div class="progress">
+						<?php
+							$totalTime = $request->prepTime + $request->hdfsInTime + $request->mapreduceTime + $request->hdfsOutTime + $request->cleanupTime;
+							$prepPercent = ($request->prepTime / $totalTime) * 100;
+							echo '<div class="progress-bar" style="width: ' .  round($prepPercent) . '%;background-image: none;background-color: yellow;" data-toggle="tooltip" data-placement="top" title="Prep time ' . $request->prepTime . ' second(s)"></div>';
+							$hdfsInPercent = ($request->hdfsInTime / $totalTime) * 100;
+							echo '<div class="progress-bar" style="width: ' .  round($hdfsInPercent) . '%;background-image: none;background-color: orange;" data-toggle="tooltip" data-placement="top" title="HDFS Input time ' . $request->hdfsInTime . ' second(s)"></div>';
+							$mapreducePercent = ($request->mapreduceTime / $totalTime) * 100;
+							echo '<div class="progress-bar" style="width: ' .  round($mapreducePercent) . '%;background-image: none;background-color: green;" data-toggle="tooltip" data-placement="top" title="Mapreduce time ' . $request->mapreduceTime . ' second(s)"></div>';
+							$hdfsOutPercent = ($request->hdfsOutTime / $totalTime) * 100;
+							echo '<div class="progress-bar" style="width: ' .  round($hdfsOutPercent) . '%;background-image: none;background-color: orange;" data-toggle="tooltip" data-placement="top" title="HDFS Output time ' . $request->hdfsOutTime . ' second(s)"></div>';
+							$cleanupPercent = ($request->cleanupTime / $totalTime) * 100;
+							echo '<div class="progress-bar" style="width: ' .  round($cleanupPercent) . '%;background-image: none;background-color: yellow;" data-toggle="tooltip" data-placement="top" title="Cleanup time ' . $request->cleanupTime . ' second(s)"></div>';
+						?>
+						</div>
 					<hr/>
 					<h3>Cpu usage over time</h3>
 					<hr/>

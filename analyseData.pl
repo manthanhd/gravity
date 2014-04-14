@@ -17,6 +17,11 @@ my $statDir = undef;
 my $jdkChangeScript = "/home/hduser/changejdks.pl";
 my $targetJDKPath = undef;
 my $oldJDK = undef;
+my $prepTime = undef;
+my $hdfsInTime = undef;
+my $hdfsOutTime = undef;
+my $mapreduceTime = undef;
+my $cleanupTime = undef;
 GetOptions (  "dataset=s" 				=> \$inputFile,
               "outputDir=s"  		  => \$outputPath,
               "mode=s"  					=> \$mode,
@@ -32,7 +37,7 @@ GetOptions (  "dataset=s" 				=> \$inputFile,
 							"statdir=s"					=> \$statDir,
 						  "targetJDK=s"       => \$targetJDKPath
 		    	);
-
+my $prepStart = time();
 if($displayHelp){
 	display('-dataset	<Path to the file containing data to be processed>');
 	display('-outputDir <Path to the directory where you want the output to be>');
@@ -145,7 +150,9 @@ if($initHadoop){
 	display('Patiently waiting for 30 seconds for hadoop to settle itself.');
 	sleep(30);
 }
-
+my $prepEnd = time();
+$prepTime = $prepEnd - $prepStart;
+my $hdfsInStart = time();
 if($tokenid){
 	report($tokenid, 30, "hdfs");
 }
@@ -184,7 +191,10 @@ if($statDir == undef){
 	}
 }
 system('/home/hduser/Resmon.pl -start-all');
-my $start = time;
+my $hdfsInEnd = time();
+$hdfsInTime = $hdfsInEnd - $hdfsInStart;
+
+my $mapreduceStart = time();
 
 if($tokenid){
 	report($tokenid, 50, "mapreduce");
@@ -207,9 +217,12 @@ display("Successfully completed MapReduce. Not checking if it failed or not.");
 if($tokenid){
 	report($tokenid, 70, "retrieve");
 }
+my $mapreduceEnd = time();
+my $mapreduceTime = $mapreduceEnd - $mapreduceStart;
+
+my $hdfsOutStart = time();
 
 # Stop the resource monitor
-my $duration = time - $start;
 # display("Value of statdir is $statDir.");
 if($statDir != undef){
 	display("Asking resource monitor to stop and retrieve all stats to $statDir directory.");
@@ -265,7 +278,10 @@ if($package){
 	}
 	display("Successfully removed directory $outputPath after packaging.");
 }
+my $hdfsOutEnd = time();
+$hdfsOutTime = $hdfsOutEnd- $hdfsOutStart;
 
+my $cleanupStart = time();
 # Cleaning up...
 display('Cleaning up...');
 $command = "$hadoop dfs -rmr $inputHDFSDir $outputHDFSDir";
@@ -308,7 +324,12 @@ if($initHadoop){
 display("Total execution time: $duration seconds.");
 display("All done!");
 
-
+my $cleanupEnd = time();
+$cleanupTime = $cleanupEnd - $cleanupStart;
+# Commit all times to database
+display("Reporting process execution times.");
+reportTime($tokenid, $prepTime, $hdfsInTime, $mapreduceTime, $hdfsOutTime, $cleanupTime);
+display("Reporting done.");
 sub display {
 	my $str = shift;
 	print $str . "\n";
@@ -334,3 +355,17 @@ sub report {
 	my $rc = system($command);
 	return $rc;
 }
+
+sub reportTime {
+	my $tokenid = shift;
+	my $prepTime = shift;
+	my $hdfsInTime = shift;
+	my $mapreduceTime = shift;
+	my $hdfsOutTime = shift;
+	my $cleanupTime = shift;
+  my $command	= "php /home/hduser/reportTime.php -t $tokenid -p $prepTime -i $hdfsInTime -m $mapreduceTime -o $hdfsOutTime -c $cleanupTime;";
+	display("About to run " . $command);
+	my $rc = system($command);
+	return $rc;
+}
+
