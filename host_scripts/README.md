@@ -1,0 +1,2 @@
+# Folder: host_scripts
+If you are testing the product on virtual machines, you might need these scripts to make life easier for yourself. The startupCluster is my favourite but it only works with VMPlayer.

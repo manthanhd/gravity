@@ -1,0 +1,2 @@
+# Folder: sample hadoop processors
+These are builds of Hadoop java applications. If you ever decide to compile one of your own, before placing it here, make sure that it follows the naming convention of <Main Class><JDK Version>_<JDK Update Level>.jar.
