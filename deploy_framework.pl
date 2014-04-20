@@ -72,6 +72,7 @@ foreach my $line (@lines){
 			# Assuming we are on the master machine...
 			if(-e $destinationLocation or make_path($destinationLocation)){
 				copy($file, $destinationLocation) or display("Warning: Unable to copy $file to $destinationLocation");
+				display("File $file copied to $destinationlocation on $clusterLocation");
 			} else {
 				display("Warning: Failed to create destination location $destinationLocation");
 			}
@@ -99,6 +100,8 @@ foreach my $line (@lines){
 					if($rc != 0){
 						display("Warning: Failed to remotely move file $filename on $node.");
 						continue;
+					} else {
+						display("File $file copied to $destinationLocation on $clusterLocation.");
 					}
 				}
 			}
