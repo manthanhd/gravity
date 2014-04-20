@@ -2,6 +2,7 @@
 use File::Copy;
 use File::Path qw(make_path remove_tree);
 use File::Basename;
+use File::Copy::Recursive qw(dircopy);
 
 my $propertiesFileName = "deployment.properties";
 if(scalar(@ARGV) != 0){
@@ -91,7 +92,11 @@ foreach my $line (@lines){
 			    # The file is to be copied onto the master machine or on entire cluster
 			    # Assuming we are on the master machine...
 			    if(-e $destinationLocation or make_path($destinationLocation)){
-				    copy($file, $destinationLocation) or display("Warning: Unable to copy $file to $destinationLocation");
+				    if(-f $file){
+					copy($file, $destinationLocation) or display("Warning: Unable to copy $file to $destinationLocation");
+				    } elsif(-d $file){
+					dircopy($file, $destinationLocation) or display("Warning: Unable to copy directory $file to $destinationLocation");
+				    }
 				    display("File $file copied to $destinationlocation on $clusterLocation");
 			    } else {
 				    display("Warning: Failed to create destination location $destinationLocation");
@@ -114,7 +119,7 @@ foreach my $line (@lines){
 					# Assuming perl is present on each machine on cluster and above scp was successful.
 					my $perlCommand = "use File::Copy; use File::Path qw(make_path remove_tree);";
 					my $filename = basename($file);
-					$perlCommand .= "if(-e $destinationLocation or make_path($destinationLocation)){ copy($filename, $destinationLocation); }";
+					$perlCommand .= "if(-e $destinationLocation or make_path($destinationLocation)){ if(-f $filename){ copy($filename, $destinationLocation); }elsif(-d $file){ dircopy($filename, $destinationLocation); } }";
 					$command = "ssh $login" . '@' . $node . " \"perl -e \'" . $perlCommand . "\'\"";
 					$rc = system($command);
 					if($rc != 0){
