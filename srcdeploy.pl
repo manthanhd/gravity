@@ -49,12 +49,12 @@ foreach my $line (@lines){
 			}
 			$masterNode = $node;
 		} elsif($role eq "slave") {
-			push(@nodes, $node);
+			push(@slaveNodes, $node);
 		}
 	}
 	$lineCount++;
 }
-if(scalar(@node) == 0){
+if(scalar(@slaveNodes) == 0){
     display("Warning: Slave nodes have not been defined.");
 }
 
@@ -63,7 +63,7 @@ if(!defined($masterNode)){
 } else {
     display("Master: $masterNode");
 }
-foreach my $node (@nodes){
+foreach my $node (@slaveNodes){
     display("Slave: $node");
 }
 
@@ -103,34 +103,33 @@ foreach my $line (@lines){
 			    }
 		    }
 		    # No elsif, this is important.
-		    if($clusterLocation eq "slaves" or $clusterLocation eq "cluster"){
+		    if($clusterLocation eq "slave" or $clusterLocation eq "cluster"){
 			    # Is the file to be copied across the entire cluster or slaves?
-			    if($clusterLocation eq "cluster"){
-				    foreach my $node (@nodes){
-					    # For each node in cluster
-					    # First scp file to home dir of remote machine
-					    my $login = getlogin || getpwuid($<) || "Kilroy";
-					    my $command = "scp " . $copyArg . " $file $login" . '@' . "$node:~/";
-					    my $rc = system($command);
-					    if($rc != 0){
-						display("Warning: Failed to remotely scp file $file to $node.");
-						next;
-					}
-					# Assuming perl is present on each machine on cluster and above scp was successful.
-					my $perlCommand = "use File::Copy; use File::Path qw(make_path remove_tree);";
-					my $filename = basename($file);
-					$perlCommand .= "if(-e $destinationLocation or make_path($destinationLocation)){ if(-f $filename){ copy($filename, $destinationLocation); }elsif(-d $file){ dircopy($filename, $destinationLocation); } }";
-					$command = "ssh $login" . '@' . $node . " \"perl -e \'" . $perlCommand . "\'\"";
-					$rc = system($command);
-					if($rc != 0){
-						display("Warning: Failed to remotely move file $filename on $node.");
-						next;
-					} else {
-						display("File $file copied to $destinationLocation on $clusterLocation.");
+					foreach my $node (@slaveNodes){
+						# For each node in cluster
+						# First scp file to home dir of remote machine
+						my $login = getlogin || getpwuid($<) || "Kilroy";
+						my $command = "scp " . $copyArg . " $file $login" . '@' . "$node:~/";
+						my $rc = system($command);
+						if($rc != 0){
+							display("Warning: Failed to remotely scp file $file to $node.");
+							next;
+						}
+						# Assuming perl is present on each machine on cluster and above scp was successful.
+						my $perlCommand = "use File::Copy; use File::Path qw(make_path remove_tree);";
+						my $filename = basename($file);
+						$perlCommand .= "if(-e $destinationLocation or make_path($destinationLocation)){ if(-f $filename){ copy($filename, $destinationLocation); }elsif(-d $file){ dircopy($filename, $destinationLocation); } }";
+						$command = "ssh $login" . '@' . $node . " \"perl -e \'" . $perlCommand . "\'\"";
+						$rc = system($command);
+						if($rc != 0){
+							display("Warning: Failed to remotely move file $filename on $node.");
+							next;
+						} else {
+							display("File $file copied to $destinationLocation on $clusterLocation.");
+						}
 					}
 				}
-			}
-		}
+			
 	    } else {
 		    display("Warning: $file does not exist.");
 	    }
